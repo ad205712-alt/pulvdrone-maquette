@@ -485,10 +485,18 @@
   /* ============ STATS ============ */
   .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
   .stat{
-    border:1px solid var(--bord);border-radius:var(--r);
+    border:1px solid rgba(255,255,255,.22);border-radius:var(--r);
     padding:30px 26px;text-align:center;
-    background:linear-gradient(180deg,rgba(30,127,224,.08),transparent);
+    background:linear-gradient(180deg,rgba(30,127,224,.16),rgba(255,255,255,.02) 65%);
+    box-shadow:
+      0 16px 36px rgba(2,10,24,.55),
+      0 0 18px rgba(127,190,245,.14),
+      inset 0 1px 0 rgba(255,255,255,.2);
   }
+  .stats .stat:hover{transform:translateY(-5px);box-shadow:
+      0 24px 48px rgba(2,10,24,.6),
+      0 0 28px rgba(127,190,245,.24),
+      inset 0 1px 0 rgba(255,255,255,.25)}
   .stat b{
     display:block;font-family:"Avenir Next Condensed","Futura",Arial,sans-serif;
     font-weight:800;font-style:italic;font-size:clamp(2.4rem,4.5vw,3.4rem);line-height:1;
@@ -496,6 +504,24 @@
   }
   .stat b em{font-style:inherit;color:var(--bleu-glow)}
   .stat span{font-size:.85rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--txt)}
+
+  /* ============ ENTRÉE AU SCROLL UNE SEULE FOIS (stats + avantages) ============
+     Jouée à la descente via IntersectionObserver, puis la carte reste fixe :
+     remonter la page ne la fait pas rejouer. */
+  .anim-in{
+    opacity:0;transform:translateY(38px);
+    transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .25s;
+  }
+  .anim-in.vu{opacity:1;transform:none}
+  .stats .stat:nth-child(2){transition-delay:.1s}
+  .stats .stat:nth-child(3){transition-delay:.2s}
+  .stats .stat:nth-child(4){transition-delay:.3s}
+  .grille-av .av:nth-child(2){transition-delay:.08s}
+  .grille-av .av:nth-child(3){transition-delay:.16s}
+  .grille-av .av:nth-child(4){transition-delay:.24s}
+  .grille-av .av:nth-child(5){transition-delay:.32s}
+  .grille-av .av:nth-child(6){transition-delay:.4s}
+  @media (prefers-reduced-motion: reduce){.anim-in{opacity:1;transform:none}}
 
   /* ============ AVANTAGES ============ */
   .grille-av{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
@@ -792,7 +818,7 @@
 
 <section class="below compact">
   <div class="wrap">
-    <div class="stats reveal">
+    <div class="stats">
       <div class="stat"><b>5 000<em>+</em></b><span>m² nettoyés</span></div>
       <div class="stat"><b>50<em>+</em></b><span>chantiers réalisés</span></div>
       <div class="stat"><b>5,0<em>★</em></b><span>49 avis Google</span></div>
@@ -807,7 +833,7 @@
       <span class="eyebrow">Pourquoi le drone</span>
       <h2 class="titre display">Zéro échafaudage.<br>Zéro compromis.</h2>
     </div>
-    <div class="grille-av reveal">
+    <div class="grille-av">
       <div class="av feu"><b>Jusqu'à −45 % sur la facture</b><p>Pas de nacelle à louer, pas d'échafaudage à monter, pas d'autorisation de voirie : le chantier se fait en heures, pas en semaines.</p></div>
       <div class="av"><b>Zéro risque humain</b><p>Le télépilote certifié DGAC reste au sol. Personne ne monte, jamais.</p></div>
       <div class="av"><b>Toits fragiles préservés</b><p>Pulvérisation basse pression, sans marcher sur les tuiles ni les ardoises — idéal pour le bâti ancien de la côte.</p></div>
@@ -1024,5 +1050,22 @@
     taille(); peindre(0);
     if (!reduce) requestAnimationFrame(boucle);
     addEventListener('resize', taille);
+  })();
+
+  // Entrée au scroll « une seule fois » : la carte apparaît à la descente
+  // puis reste en place définitivement (unobserve après déclenchement).
+  (function(){
+    var els = document.querySelectorAll('.stats .stat, .grille-av .av');
+    els.forEach(function(el){ el.classList.add('anim-in'); });
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches){
+      els.forEach(function(el){ el.classList.add('vu'); });
+      return;
+    }
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('vu'); obs.unobserve(e.target); }
+      });
+    }, {threshold:.25, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){ obs.observe(el); });
   })();
 </script>
