@@ -1053,19 +1053,32 @@
   })();
 
   // Entrée au scroll « une seule fois » : la carte apparaît à la descente
-  // puis reste en place définitivement (unobserve après déclenchement).
+  // puis reste en place définitivement (retirée de la liste après déclenchement).
   (function(){
-    var els = document.querySelectorAll('.stats .stat, .grille-av .av');
-    els.forEach(function(el){ el.classList.add('anim-in'); });
+    var attente = Array.prototype.slice.call(
+      document.querySelectorAll('.stats .stat, .grille-av .av'));
+    attente.forEach(function(el){ el.classList.add('anim-in'); });
     if (matchMedia('(prefers-reduced-motion: reduce)').matches){
-      els.forEach(function(el){ el.classList.add('vu'); });
+      attente.forEach(function(el){ el.classList.add('vu'); });
       return;
     }
-    var obs = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting){ e.target.classList.add('vu'); obs.unobserve(e.target); }
+    function verif(){
+      if (!attente.length) return;
+      var seuil = innerHeight * 0.92;
+      attente = attente.filter(function(el){
+        if (el.getBoundingClientRect().top < seuil){
+          el.classList.add('vu');
+          return false;
+        }
+        return true;
       });
-    }, {threshold:.25, rootMargin:'0px 0px -8% 0px'});
-    els.forEach(function(el){ obs.observe(el); });
+      if (!attente.length){
+        removeEventListener('scroll', verif);
+        removeEventListener('resize', verif);
+      }
+    }
+    addEventListener('scroll', verif, {passive:true});
+    addEventListener('resize', verif);
+    verif();
   })();
 </script>
