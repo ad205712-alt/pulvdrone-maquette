@@ -508,7 +508,7 @@
   .av.feu{border-left-color:var(--rouge)}
 
   /* ============ ZONE — TYPO GÉANTE ============ */
-  #zone .villes{display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:10px}
+  #zone .villes{display:flex;flex-direction:column;align-items:flex-start;gap:2px;margin-top:10px}
   .ville-txt{
     font-family:"Avenir Next Condensed","Futura",Arial,sans-serif;
     font-weight:800;font-style:italic;text-transform:uppercase;
@@ -526,11 +526,11 @@
     font-size:.8rem;letter-spacing:.14em;color:rgba(159,212,255,.5);
     opacity:0;transform:translate(-8px,-50%);transition:.25s;text-transform:uppercase;
   }
-  .ville-txt:hover{color:var(--txt-fort);-webkit-text-stroke-color:transparent;text-shadow:0 0 20px rgba(255,255,255,.35),0 0 54px rgba(30,127,224,.6);transform:scale(1.03)}
+  .ville-txt:hover{color:var(--txt-fort);-webkit-text-stroke-color:transparent;text-shadow:0 0 20px rgba(255,255,255,.35),0 0 54px rgba(30,127,224,.6);transform:translateX(10px)}
   .ville-txt:hover small{opacity:1;transform:translate(0,-50%)}
   .ville-txt.accent{color:var(--rouge);-webkit-text-stroke-color:transparent}
   .ville-txt.accent:hover{text-shadow:0 0 44px rgba(225,29,48,.55)}
-  .zone-note{margin:34px auto 0;font-size:.92rem;color:rgba(159,212,255,.6);max-width:58ch;text-align:center}
+  .zone-note{margin:34px 0 0;font-size:.92rem;color:rgba(159,212,255,.6);max-width:58ch;text-align:left}
 
   /* ============ PROCESS ============ */
   .etapes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;counter-reset:et}
