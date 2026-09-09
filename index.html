@@ -129,9 +129,51 @@
     color:var(--bleu-clair);background:rgba(30,127,224,.2);
     border-radius:999px;padding:2px 8px;flex:none;
   }
-  @media (max-width:820px){
-    header.site{display:none}
+  /* burger + panneau mobile */
+  .burger{
+    display:none;background:none;cursor:pointer;
+    border:1px solid rgba(159,212,255,.35);border-radius:10px;padding:9px 11px;
   }
+  .burger span{display:block;width:22px;height:2px;background:#fff;margin:4px 0;border-radius:2px}
+  @media (max-width:820px){
+    .nav ul{display:none}
+    .nav{justify-content:space-between}
+    .nav::before{content:"MENU";font-size:.72rem;font-weight:700;letter-spacing:.22em;color:var(--bleu-clair)}
+    .burger{display:block}
+  }
+  .panneau-mobile{
+    position:fixed;inset:0;z-index:80;
+    background:rgba(5,16,33,.98);backdrop-filter:blur(16px);
+    padding:26px 26px 40px;overflow-y:auto;
+    opacity:0;visibility:hidden;transform:translateY(-14px);
+    transition:opacity .28s,transform .28s,visibility .28s;
+  }
+  .panneau-mobile.ouvert{opacity:1;visibility:visible;transform:none}
+  .panneau-mobile .fermer{
+    position:absolute;top:18px;right:20px;
+    background:none;border:1px solid rgba(159,212,255,.35);border-radius:50%;
+    width:44px;height:44px;color:#fff;font-size:1.2rem;cursor:pointer;
+  }
+  .pm-groupe{margin:26px 0 0}
+  .pm-titre{
+    display:block;font-size:.72rem;font-weight:700;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--bleu-clair);margin-bottom:10px;
+  }
+  .pm-groupe a{
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+    color:var(--txt-fort);text-decoration:none;
+    font-family:"Avenir Next Condensed","Futura",Arial,sans-serif;
+    font-weight:800;font-style:italic;text-transform:uppercase;font-size:1.35rem;
+    padding:9px 4px;border-bottom:1px solid rgba(127,190,245,.12);
+  }
+  .pm-groupe a em{
+    font-style:normal;font-family:"Avenir Next",Arial,sans-serif;font-weight:700;
+    font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--bleu-clair);background:rgba(30,127,224,.2);
+    border-radius:999px;padding:2px 8px;flex:none;
+  }
+  .pm-ctas{display:grid;gap:12px;margin-top:34px}
+  .pm-ctas .btn{justify-content:center}
   .btn{
     display:inline-flex;align-items:center;gap:10px;
     background:var(--rouge);color:#fff;font-weight:700;font-size:.95rem;
@@ -785,8 +827,41 @@
       <li><a href="#chantiers">Chantiers</a></li>
       <li><a href="#avis">Avis</a></li>
     </ul>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menumob" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<nav class="panneau-mobile" id="menumob" aria-label="Menu mobile">
+  <button class="fermer" aria-label="Fermer le menu">✕</button>
+  <div class="pm-groupe">
+    <span class="pm-titre">Services</span>
+    <a href="#services">Démoussage &amp; toiture <em>à venir</em></a>
+    <a href="#services">Façades &amp; bardages <em>à venir</em></a>
+    <a href="#services">Panneaux photovoltaïques <em>à venir</em></a>
+    <a href="#services">Vitrages grandes structures <em>à venir</em></a>
+  </div>
+  <div class="pm-groupe">
+    <span class="pm-titre">Calvados</span>
+    <a href="#zone">Caen <em>à venir</em></a>
+    <a href="#zone">Deauville <em>à venir</em></a>
+    <a href="#zone">Trouville-sur-Mer <em>à venir</em></a>
+    <a href="#zone">Cabourg <em>à venir</em></a>
+    <a href="#zone">Houlgate <em>à venir</em></a>
+    <a href="#zone">Villers-sur-Mer <em>à venir</em></a>
+    <a href="#zone">Bayeux <em>à venir</em></a>
+  </div>
+  <div class="pm-groupe">
+    <span class="pm-titre">Découvrir</span>
+    <a href="#chantiers">Nos chantiers</a>
+    <a href="#avis">Avis clients</a>
+  </div>
+  <div class="pm-ctas">
+    <a class="btn" href="#contact">Devis gratuit en 24 h</a>
+    <a class="btn tel" href="tel:+33668868968"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>06 68 86 89 68</a>
+  </div>
+</nav>
 
 <div class="hero">
   <canvas class="bulles" id="bulles" aria-hidden="true"></canvas>
@@ -1103,6 +1178,24 @@
     document.addEventListener('click', function(e){
       if (!fab.contains(e.target)){ fab.classList.remove('ouvert'); btn.setAttribute('aria-expanded','false'); }
     });
+  })();
+
+  // Menu burger mobile
+  (function(){
+    var burger = document.getElementById('burger');
+    var panneau = document.getElementById('menumob');
+    function fermer(){
+      panneau.classList.remove('ouvert');
+      burger.setAttribute('aria-expanded','false');
+      document.body.style.overflow = '';
+    }
+    burger.addEventListener('click', function(){
+      var ouvert = panneau.classList.toggle('ouvert');
+      burger.setAttribute('aria-expanded', ouvert);
+      document.body.style.overflow = ouvert ? 'hidden' : '';
+    });
+    panneau.querySelector('.fermer').addEventListener('click', fermer);
+    panneau.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', fermer); });
   })();
 
   // Toujours ouvrir la page en haut, même si le lien partagé contient une ancre
