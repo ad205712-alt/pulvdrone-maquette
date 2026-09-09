@@ -191,35 +191,37 @@
      et s'étend sur ~66vw centrés) : traversées hautes plaquées sous le header
      (y négatif, petite échelle → bas du drone < 74px), descentes d'inspection
      à moitié hors-écran sur les bords. Valeurs en px = marges fiables à toute largeur. */
+  /* Toujours de face (pas de rotateY : un demi-tour aplatit un objet simulé en 2D).
+     Plus de temps sur les côtés du titre, à sa hauteur, sur les bords de l'écran. */
   @keyframes patrouille{
-    0%  {transform:translate3d(-170px,-30px,0)             scale(.4)  rotateY(0deg)   rotateZ(2deg)}
-    10% {transform:translate3d(16vw,-32px,0)               scale(.44) rotateY(0deg)   rotateZ(-4deg)}
-    20% {transform:translate3d(46vw,-30px,0)               scale(.46) rotateY(0deg)   rotateZ(-3deg)}
-    28% {transform:translate3d(calc(100vw - 260px),-32px,0) scale(.44) rotateY(0deg)   rotateZ(-2deg)}
-    34% {transform:translate3d(calc(100vw - 130px),18vh,0)  scale(.7)  rotateY(0deg)   rotateZ(1deg)}
-    42% {transform:translate3d(calc(100vw - 130px),50vh,0)  scale(.92) rotateY(0deg)   rotateZ(-1deg)}
-    48% {transform:translate3d(calc(100vw - 130px),14vh,0)  scale(.64) rotateY(0deg)   rotateZ(1deg)}
-    52% {transform:translate3d(calc(100vw - 130px),4vh,0)   scale(.58) rotateY(180deg) rotateZ(0deg)}
-    60% {transform:translate3d(48vw,-30px,0)               scale(.45) rotateY(180deg) rotateZ(-3deg)}
-    68% {transform:translate3d(14vw,-30px,0)               scale(.46) rotateY(180deg) rotateZ(-2deg)}
-    74% {transform:translate3d(-70px,20vh,0)               scale(.72) rotateY(180deg) rotateZ(1deg)}
-    82% {transform:translate3d(-70px,52vh,0)               scale(.95) rotateY(180deg) rotateZ(-1deg)}
-    88% {transform:translate3d(-70px,12vh,0)               scale(.64) rotateY(180deg) rotateZ(1deg)}
-    92% {transform:translate3d(-100px,-14px,0)             scale(.5)  rotateY(360deg) rotateZ(1deg)}
-    100%{transform:translate3d(-170px,-30px,0)             scale(.4)  rotateY(360deg) rotateZ(2deg)}
+    0%  {transform:translate3d(-170px,-30px,0)              scale(.4)  rotateZ(2deg)}
+    8%  {transform:translate3d(16vw,-32px,0)                scale(.44) rotateZ(-4deg)}
+    16% {transform:translate3d(46vw,-30px,0)                scale(.46) rotateZ(-3deg)}
+    24% {transform:translate3d(calc(100vw - 260px),-32px,0) scale(.44) rotateZ(-2deg)}
+    30% {transform:translate3d(calc(100vw - 130px),14vh,0)  scale(.62) rotateZ(1deg)}
+    40% {transform:translate3d(calc(100vw - 125px),48vh,0)  scale(.9)  rotateZ(-1deg)}
+    50% {transform:translate3d(calc(100vw - 140px),28vh,0)  scale(.74) rotateZ(1deg)}
+    56% {transform:translate3d(calc(100vw - 130px),6vh,0)   scale(.55) rotateZ(0deg)}
+    64% {transform:translate3d(48vw,-30px,0)                scale(.45) rotateZ(-3deg)}
+    70% {transform:translate3d(14vw,-30px,0)                scale(.46) rotateZ(-2deg)}
+    76% {transform:translate3d(-70px,18vh,0)                scale(.7)  rotateZ(1deg)}
+    84% {transform:translate3d(-70px,50vh,0)                scale(.95) rotateZ(-1deg)}
+    90% {transform:translate3d(-70px,24vh,0)                scale(.72) rotateZ(1deg)}
+    94% {transform:translate3d(-90px,-14px,0)               scale(.5)  rotateZ(1deg)}
+    100%{transform:translate3d(-170px,-30px,0)              scale(.4)  rotateZ(2deg)}
   }
   /* Sur mobile le texte occupe toute la largeur : le drone glisse le long du bord haut */
   @media (max-width:720px){
     .vol{animation-name:patrouille-haut}
   }
   @keyframes patrouille-haut{
-    0%  {transform:translate3d(-140px,-48px,0) scale(.3)  rotateY(0deg)   rotateZ(2deg)}
-    22% {transform:translate3d(8vw,-52px,0)    scale(.34) rotateY(0deg)   rotateZ(-3deg)}
-    44% {transform:translate3d(55vw,-48px,0)   scale(.32) rotateY(0deg)   rotateZ(-2deg)}
-    50% {transform:translate3d(58vw,-50px,0)   scale(.32) rotateY(180deg) rotateZ(0deg)}
-    72% {transform:translate3d(10vw,-50px,0)   scale(.34) rotateY(180deg) rotateZ(-2deg)}
-    94% {transform:translate3d(-120px,-48px,0) scale(.3)  rotateY(360deg) rotateZ(1deg)}
-    100%{transform:translate3d(-140px,-48px,0) scale(.3)  rotateY(360deg) rotateZ(2deg)}
+    0%  {transform:translate3d(-140px,-48px,0) scale(.3)  rotateZ(2deg)}
+    22% {transform:translate3d(8vw,-52px,0)    scale(.34) rotateZ(-3deg)}
+    44% {transform:translate3d(55vw,-48px,0)   scale(.32) rotateZ(-2deg)}
+    50% {transform:translate3d(58vw,-50px,0)   scale(.32) rotateZ(0deg)}
+    72% {transform:translate3d(10vw,-50px,0)   scale(.34) rotateZ(-2deg)}
+    94% {transform:translate3d(-120px,-48px,0) scale(.3)  rotateZ(1deg)}
+    100%{transform:translate3d(-140px,-48px,0) scale(.3)  rotateZ(2deg)}
   }
   .bob{animation:bob 2.7s ease-in-out infinite}
   @keyframes bob{0%,100%{transform:translateY(0) rotate(.7deg)}50%{transform:translateY(-6px) rotate(-.9deg)}}
