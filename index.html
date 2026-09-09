@@ -966,6 +966,12 @@
 </footer>
 
 <script>
+  // Toujours ouvrir la page en haut, même si le lien partagé contient une ancre
+  // (#avis, #zone…) et même au rechargement. La navigation interne reste intacte.
+  history.scrollRestoration = 'manual';
+  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+  scrollTo(0, 0);
+
   // Bulles dérivantes du héro — écho du spray du logo.
   // Coordonnées normalisées (0..1) : un redimensionnement (barre d'adresse mobile,
   // rotation, fenêtre) ne téléporte ni ne régénère jamais les bulles.
