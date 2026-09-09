@@ -124,7 +124,7 @@
       radial-gradient(40% 36% at 12% 82%,rgba(225,29,48,.12),transparent 70%),
       radial-gradient(30% 26% at 50% 110%,rgba(78,163,240,.18),transparent 70%);
   }
-  .bulles{position:absolute;inset:0;pointer-events:none}
+  .bulles{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
   .hero .wrap{position:relative;z-index:2;padding-top:76px;padding-bottom:110px;text-align:center}
   .hero h1{font-size:clamp(3rem,9.2vw,7.2rem);margin:0 auto 26px;max-width:12ch}
   .hero h1 .chrome{
@@ -160,18 +160,37 @@
     pointer-events:none;will-change:transform;
     animation:patrouille 34s ease-in-out infinite;
   }
+  /* Patrouille : bande haute + bords latéraux (descentes d'inspection).
+     La zone centrale du titre (25–75vw / 15–70vh) n'est jamais traversée. */
   @keyframes patrouille{
-    0%  {transform:translate3d(-14vw,10vh,0) scale(.5)  rotateY(0deg)   rotateZ(3deg)}
-    14% {transform:translate3d(15vw,4vh,0)   scale(.62) rotateY(0deg)   rotateZ(-5deg)}
-    30% {transform:translate3d(52vw,14vh,0)  scale(.8)  rotateY(0deg)   rotateZ(-4deg)}
-    42% {transform:translate3d(74vw,5vh,0)   scale(.68) rotateY(0deg)   rotateZ(-2deg)}
-    47% {transform:translate3d(80vw,7vh,0)   scale(.66) rotateY(0deg)   rotateZ(0deg)}
-    52% {transform:translate3d(80vw,8vh,0)   scale(.66) rotateY(180deg) rotateZ(0deg)}
-    66% {transform:translate3d(48vw,18vh,0)  scale(.95) rotateY(180deg) rotateZ(-5deg)}
-    80% {transform:translate3d(13vw,8vh,0)   scale(.72) rotateY(180deg) rotateZ(-3deg)}
-    90% {transform:translate3d(-5vw,12vh,0)  scale(.58) rotateY(180deg) rotateZ(-1deg)}
-    96% {transform:translate3d(-13vw,10vh,0) scale(.51) rotateY(360deg) rotateZ(2deg)}
-    100%{transform:translate3d(-14vw,10vh,0) scale(.5)  rotateY(360deg) rotateZ(3deg)}
+    0%  {transform:translate3d(-12vw,6vh,0)  scale(.52) rotateY(0deg)   rotateZ(2deg)}
+    10% {transform:translate3d(18vw,4vh,0)   scale(.62) rotateY(0deg)   rotateZ(-5deg)}
+    20% {transform:translate3d(50vw,7vh,0)   scale(.68) rotateY(0deg)   rotateZ(-4deg)}
+    28% {transform:translate3d(80vw,5vh,0)   scale(.64) rotateY(0deg)   rotateZ(-2deg)}
+    34% {transform:translate3d(85vw,24vh,0)  scale(.78) rotateY(0deg)   rotateZ(1deg)}
+    42% {transform:translate3d(83vw,55vh,0)  scale(.95) rotateY(0deg)   rotateZ(-1deg)}
+    48% {transform:translate3d(85vw,18vh,0)  scale(.75) rotateY(0deg)   rotateZ(1deg)}
+    52% {transform:translate3d(85vw,12vh,0)  scale(.72) rotateY(180deg) rotateZ(0deg)}
+    60% {transform:translate3d(52vw,5vh,0)   scale(.66) rotateY(180deg) rotateZ(-4deg)}
+    68% {transform:translate3d(16vw,7vh,0)   scale(.62) rotateY(180deg) rotateZ(-3deg)}
+    74% {transform:translate3d(10vw,26vh,0)  scale(.8)  rotateY(180deg) rotateZ(1deg)}
+    82% {transform:translate3d(12vw,58vh,0)  scale(.98) rotateY(180deg) rotateZ(-1deg)}
+    88% {transform:translate3d(10vw,14vh,0)  scale(.72) rotateY(180deg) rotateZ(1deg)}
+    92% {transform:translate3d(6vw,8vh,0)    scale(.6)  rotateY(360deg) rotateZ(1deg)}
+    100%{transform:translate3d(-12vw,6vh,0)  scale(.52) rotateY(360deg) rotateZ(2deg)}
+  }
+  /* Sur mobile le texte occupe toute la largeur : le drone reste dans la bande haute */
+  @media (max-width:720px){
+    .vol{animation-name:patrouille-haut}
+  }
+  @keyframes patrouille-haut{
+    0%  {transform:translate3d(-34vw,5vh,0) scale(.4)  rotateY(0deg)   rotateZ(2deg)}
+    22% {transform:translate3d(10vw,2vh,0)  scale(.5)  rotateY(0deg)   rotateZ(-4deg)}
+    44% {transform:translate3d(52vw,5vh,0)  scale(.46) rotateY(0deg)   rotateZ(-3deg)}
+    50% {transform:translate3d(56vw,4vh,0)  scale(.46) rotateY(180deg) rotateZ(0deg)}
+    72% {transform:translate3d(12vw,2vh,0)  scale(.52) rotateY(180deg) rotateZ(-3deg)}
+    94% {transform:translate3d(-30vw,5vh,0) scale(.42) rotateY(360deg) rotateZ(1deg)}
+    100%{transform:translate3d(-34vw,5vh,0) scale(.4)  rotateY(360deg) rotateZ(2deg)}
   }
   .bob{animation:bob 2.7s ease-in-out infinite}
   @keyframes bob{0%,100%{transform:translateY(0) rotate(.7deg)}50%{transform:translateY(-9px) rotate(-.9deg)}}
