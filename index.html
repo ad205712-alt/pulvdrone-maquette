@@ -887,16 +887,46 @@
     var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     var dpr = Math.min(devicePixelRatio || 1, 1.5);
     var W = 0, H = 0, parts = [];
-    var seed = 11;
+    var seed = 19;
     function rnd(){ seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
-    for (var i = 0; i < 110; i++){
+
+    // Sprite « bulle » réaliste : centre transparent, fine couronne claire, reflet
+    // de lumière décentré — dessiné une seule fois puis réutilisé (drawImage).
+    function sprite(px, bokeh){
+      var s = document.createElement('canvas');
+      s.width = s.height = px;
+      var g = s.getContext('2d');
+      var r = px / 2;
+      var grad = g.createRadialGradient(r, r, 0, r, r, r);
+      if (bokeh){ // halo flou d'arrière-plan
+        grad.addColorStop(0,  'rgba(170,205,240,.32)');
+        grad.addColorStop(.7, 'rgba(170,205,240,.14)');
+        grad.addColorStop(1,  'rgba(170,205,240,0)');
+        g.fillStyle = grad; g.fillRect(0, 0, px, px);
+      } else {
+        grad.addColorStop(0,   'rgba(190,220,250,0)');
+        grad.addColorStop(.72, 'rgba(190,220,250,.05)');
+        grad.addColorStop(.88, 'rgba(215,238,255,.5)');
+        grad.addColorStop(1,   'rgba(215,238,255,0)');
+        g.fillStyle = grad; g.fillRect(0, 0, px, px);
+        var h = g.createRadialGradient(r*.66, r*.58, 0, r*.66, r*.58, r*.3);
+        h.addColorStop(0, 'rgba(255,255,255,.8)');
+        h.addColorStop(1, 'rgba(255,255,255,0)');
+        g.fillStyle = h; g.fillRect(0, 0, px, px);
+      }
+      return s;
+    }
+    var spBulle = sprite(64, false), spBokeh = sprite(64, true);
+
+    for (var i = 0; i < 68; i++){
+      var d = rnd();               // profondeur : 0 = loin, 1 = près
+      var bokeh = rnd() > .84;
       parts.push({
-        nx: rnd(), ny: rnd(),
-        r: 1 + rnd() * 7,
-        v: 0.0002 + rnd() * 0.00055,
-        o: 0.05 + rnd() * 0.22,
-        blanc: rnd() > 0.8,
-        ph: rnd() * 6.2832
+        nx: rnd(), ny: rnd(), ph: rnd() * 6.2832,
+        d: d, bokeh: bokeh,
+        taille: bokeh ? 14 + rnd() * 22 : 2.5 + d * 9,
+        v: (0.00008 + d * 0.00022) * (bokeh ? .6 : 1),
+        o: bokeh ? .05 + rnd() * .05 : .1 + d * .28
       });
     }
     function taille(){
@@ -908,13 +938,14 @@
       ctx.clearRect(0, 0, W, H);
       for (var i = 0; i < parts.length; i++){
         var p = parts[i];
-        var x = (p.nx + Math.sin(t * 0.0004 + p.ph) * 0.006) * W;
+        // oscillation latérale douce, plus marquée pour les bulles proches
+        var x = (p.nx + Math.sin(t * 0.00025 + p.ph) * 0.008 * (0.3 + p.d)) * W;
         var y = p.ny * H;
-        ctx.beginPath();
-        ctx.arc(x, y, p.r * dpr, 0, 6.2832);
-        ctx.fillStyle = (p.blanc ? 'rgba(255,255,255,' : 'rgba(127,190,245,') + p.o + ')';
-        ctx.fill();
+        var r = p.taille * dpr;
+        ctx.globalAlpha = p.o;
+        ctx.drawImage(p.bokeh ? spBokeh : spBulle, x - r, y - r, r * 2, r * 2);
       }
+      ctx.globalAlpha = 1;
     }
     function pas(t){
       for (var i = 0; i < parts.length; i++){
