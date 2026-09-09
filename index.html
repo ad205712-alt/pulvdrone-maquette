@@ -154,6 +154,92 @@
   .coin.bl{bottom:26px;left:26px;border-right:0;border-top:0}
   .coin.br{bottom:26px;right:26px;border-left:0;border-top:0}
 
+  /* ============ DRONE EN VOL ============ */
+  .vol{
+    position:absolute;left:0;top:0;width:190px;height:140px;z-index:1;
+    pointer-events:none;will-change:transform;
+    animation:patrouille 34s ease-in-out infinite;
+  }
+  @keyframes patrouille{
+    0%  {transform:translate3d(-14vw,10vh,0) scale(.5)  rotateY(0deg)   rotateZ(3deg)}
+    14% {transform:translate3d(15vw,4vh,0)   scale(.62) rotateY(0deg)   rotateZ(-5deg)}
+    30% {transform:translate3d(52vw,14vh,0)  scale(.8)  rotateY(0deg)   rotateZ(-4deg)}
+    42% {transform:translate3d(74vw,5vh,0)   scale(.68) rotateY(0deg)   rotateZ(-2deg)}
+    47% {transform:translate3d(80vw,7vh,0)   scale(.66) rotateY(0deg)   rotateZ(0deg)}
+    52% {transform:translate3d(80vw,8vh,0)   scale(.66) rotateY(180deg) rotateZ(0deg)}
+    66% {transform:translate3d(48vw,18vh,0)  scale(.95) rotateY(180deg) rotateZ(-5deg)}
+    80% {transform:translate3d(13vw,8vh,0)   scale(.72) rotateY(180deg) rotateZ(-3deg)}
+    90% {transform:translate3d(-5vw,12vh,0)  scale(.58) rotateY(180deg) rotateZ(-1deg)}
+    96% {transform:translate3d(-13vw,10vh,0) scale(.51) rotateY(360deg) rotateZ(2deg)}
+    100%{transform:translate3d(-14vw,10vh,0) scale(.5)  rotateY(360deg) rotateZ(3deg)}
+  }
+  .bob{animation:bob 2.7s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(.7deg)}50%{transform:translateY(-9px) rotate(-.9deg)}}
+  .drone3d{position:relative;width:190px;height:110px;filter:drop-shadow(0 12px 20px rgba(0,0,0,.5))}
+  .drone3d span{position:absolute;display:block}
+  .bras{left:50%;top:47px;width:176px;height:7px;margin-left:-88px;border-radius:4px;
+    background:linear-gradient(180deg,#2E3B4C,#0C121B 70%)}
+  .b1{transform:rotate(-22deg)}
+  .b2{transform:rotate(22deg)}
+  .jet{
+    left:50%;top:64px;width:72px;height:92px;margin-left:-36px;
+    background:linear-gradient(180deg,rgba(159,212,255,.32),rgba(159,212,255,.06) 70%,transparent);
+    clip-path:polygon(45% 0,55% 0,100% 100%,0 100%);
+    filter:blur(2px);transform-origin:top;
+    animation:jete 3.4s ease-in-out infinite;
+  }
+  @keyframes jete{0%,100%{opacity:.35;transform:scaleY(.9)}50%{opacity:.75;transform:scaleY(1.06)}}
+  .corps{
+    left:50%;top:36px;width:64px;height:30px;margin-left:-32px;border-radius:10px;
+    background:linear-gradient(160deg,#41526B,#131B26 65%);
+    box-shadow:inset 0 2px 3px rgba(255,255,255,.28),inset 0 -3px 5px rgba(0,0,0,.5);
+  }
+  .corps::after{ /* nacelle caméra */
+    content:"";position:absolute;left:50%;bottom:-9px;width:14px;height:14px;margin-left:-7px;border-radius:50%;
+    background:radial-gradient(circle at 34% 30%,#7FA3C9,#0A0F16 62%);
+    border:2px solid #1E2937;
+  }
+  .cuve{
+    left:50%;top:17px;width:46px;height:21px;margin-left:-23px;border-radius:8px;
+    background:linear-gradient(160deg,#FF5B64,#C1121F 55%,#8F0D18);
+    box-shadow:inset 0 2px 3px rgba(255,255,255,.45),inset 0 -3px 4px rgba(0,0,0,.35);
+  }
+  .patin{top:98px;width:60px;height:5px;border-radius:3px;background:linear-gradient(180deg,#26303E,#0C121B)}
+  .p1{left:26px}.p2{right:26px}
+  .patin::before,.patin::after{content:"";position:absolute;top:-14px;width:4px;height:15px;background:#18202C;border-radius:2px}
+  .patin::before{left:8px;transform:rotate(14deg)}
+  .patin::after{right:8px;transform:rotate(-14deg)}
+  .rotor{width:26px;height:12px}
+  .r1{left:-5px;top:8px}.r2{right:-5px;top:8px}.r3{left:-5px;top:76px}.r4{right:-5px;top:76px}
+  .rotor .pod{
+    inset:0;border-radius:6px;
+    background:linear-gradient(180deg,#E63946,#8F0D18 75%);
+    box-shadow:inset 0 1px 2px rgba(255,255,255,.4);
+  }
+  .rotor .helice{left:50%;top:-26px;width:64px;height:64px;margin-left:-32px;transform:rotateX(74deg)}
+  .helice::before{ /* disque de flou — les pales tournent trop vite pour l'œil */
+    content:"";position:absolute;inset:4px;border-radius:50%;
+    background:radial-gradient(closest-side,transparent 28%,rgba(208,228,252,.17) 58%,transparent 76%);
+  }
+  .helice i{position:absolute;inset:0;filter:blur(.5px);animation:tourne .13s linear infinite}
+  .r2 .helice i{animation-duration:.15s}
+  .r3 .helice i{animation-duration:.14s}
+  .r4 .helice i{animation-duration:.125s}
+  .helice i::before,.helice i::after{
+    content:"";position:absolute;left:50%;top:50%;width:60px;height:4px;margin:-2px 0 0 -30px;border-radius:2px;
+    background:linear-gradient(90deg,rgba(14,20,28,.95),rgba(104,124,148,.95) 50%,rgba(14,20,28,.95));
+  }
+  .helice i::after{transform:rotate(90deg)}
+  @keyframes tourne{to{transform:rotate(360deg)}}
+  .led{width:6px;height:6px;border-radius:50%}
+  .led.vert{right:24px;top:44px;background:#3AE07C;box-shadow:0 0 9px #3AE07C;animation:cligno 2s ease-in-out infinite}
+  .led.roug{left:24px;top:44px;background:#FF4553;box-shadow:0 0 9px #FF4553;animation:cligno 2s ease-in-out 1s infinite}
+  .led.strobe{left:50%;top:30px;margin-left:-3px;background:#fff;box-shadow:0 0 12px #fff;opacity:0;animation:strobe 2.4s linear infinite}
+  @keyframes cligno{50%{opacity:.2}}
+  @keyframes strobe{0%,88%,92.5%,100%{opacity:0}90%,94.5%{opacity:1}}
+  @media (max-width:720px){.drone3d{transform:scale(.62)}}
+  @media (prefers-reduced-motion: reduce){.vol{display:none}}
+
   /* ============ MARQUEE ============ */
   .marquee{
     background:var(--rouge);
@@ -496,6 +582,22 @@
 
 <div class="hero">
   <canvas class="bulles" id="bulles" aria-hidden="true"></canvas>
+  <div class="vol" aria-hidden="true">
+    <div class="bob">
+      <div class="drone3d">
+        <span class="bras b1"></span><span class="bras b2"></span>
+        <span class="jet"></span>
+        <span class="rotor r1"><span class="pod"></span><span class="helice"><i></i></span></span>
+        <span class="rotor r2"><span class="pod"></span><span class="helice"><i></i></span></span>
+        <span class="rotor r3"><span class="pod"></span><span class="helice"><i></i></span></span>
+        <span class="rotor r4"><span class="pod"></span><span class="helice"><i></i></span></span>
+        <span class="corps"></span>
+        <span class="cuve"></span>
+        <span class="patin p1"></span><span class="patin p2"></span>
+        <span class="led vert"></span><span class="led roug"></span><span class="led strobe"></span>
+      </div>
+    </div>
+  </div>
   <span class="coin tl" aria-hidden="true"></span><span class="coin tr" aria-hidden="true"></span>
   <span class="coin bl" aria-hidden="true"></span><span class="coin br" aria-hidden="true"></span>
   <div class="wrap">
