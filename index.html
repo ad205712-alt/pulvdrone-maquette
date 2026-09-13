@@ -508,6 +508,8 @@
   .cell.moyen{grid-column:span 5}
   .cell.petit{grid-column:span 6}
   @media (max-width:860px){.cell.grand,.cell.moyen,.cell.petit{grid-column:span 12}}
+  .lien-svc{color:var(--bleu-clair);font-weight:700;text-decoration:none;font-size:.9rem;display:inline-block}
+  .lien-svc:hover{color:#fff}
   .cell .pin{
     display:inline-flex;width:fit-content;align-items:center;gap:8px;
     font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
@@ -814,15 +816,6 @@
   <div class="nav">
     <ul>
       <li class="deroulant">
-        <a href="#services">Services <span class="fleche" aria-hidden="true">▾</span></a>
-        <ul class="sousmenu">
-          <li><a href="#services">Démoussage &amp; toiture <em>à venir</em></a></li>
-          <li><a href="#services">Façades &amp; bardages <em>à venir</em></a></li>
-          <li><a href="#services">Panneaux photovoltaïques <em>à venir</em></a></li>
-          <li><a href="#services">Vitrages grandes structures <em>à venir</em></a></li>
-        </ul>
-      </li>
-      <li class="deroulant">
         <a href="#zone">Caen <span class="fleche" aria-hidden="true">▾</span></a>
         <ul class="sousmenu">
           <li><a href="demoussage-toiture-drone-caen/">Démoussage toiture Caen</a></li>
@@ -831,6 +824,9 @@
           <li><a href="nettoyage-vitres-drone-caen/">Vitrages Caen</a></li>
         </ul>
       </li>
+      <li><a href="zone-intervention-calvados/">Zone d'intervention</a></li>
+      <li><a href="robot-nettoyage-panneaux-solaires/">Robot solaire</a></li>
+      <li><a href="blog/">Blog</a></li>
       <li><a href="#chantiers">Chantiers</a></li>
       <li><a href="#avis">Avis</a></li>
     </ul>
@@ -843,13 +839,6 @@
 <nav class="panneau-mobile" id="menumob" aria-label="Menu mobile">
   <button class="fermer" aria-label="Fermer le menu">✕</button>
   <div class="pm-groupe">
-    <span class="pm-titre">Services</span>
-    <a href="#services">Démoussage &amp; toiture <em>à venir</em></a>
-    <a href="#services">Façades &amp; bardages <em>à venir</em></a>
-    <a href="#services">Panneaux photovoltaïques <em>à venir</em></a>
-    <a href="#services">Vitrages grandes structures <em>à venir</em></a>
-  </div>
-  <div class="pm-groupe">
     <span class="pm-titre">Caen</span>
     <a href="demoussage-toiture-drone-caen/">Démoussage toiture Caen</a>
     <a href="nettoyage-bardage-facade-caen/">Façades &amp; bardages Caen</a>
@@ -858,6 +847,9 @@
   </div>
   <div class="pm-groupe">
     <span class="pm-titre">Découvrir</span>
+    <a href="zone-intervention-calvados/">Zone d'intervention</a>
+    <a href="robot-nettoyage-panneaux-solaires/">Robot solaire — vente</a>
+    <a href="blog/">Blog &amp; conseils</a>
     <a href="#chantiers">Nos chantiers</a>
     <a href="#avis">Avis clients</a>
   </div>
@@ -962,24 +954,28 @@
         <span class="pin">Le plus demandé</span>
         <h3 class="display">Démoussage &amp; nettoyage de toiture</h3>
         <p>Démoussage, nettoyage et traitement préventif par drone pulvérisateur. Tuiles, ardoises, fibrociment — sans marcher sur votre toit.</p>
+        <a class="lien-svc" href="demoussage-toiture-drone-caen/">Voir le service à Caen →</a>
         <div class="cible">Copropriétés · Mairies · Grandes toitures</div>
       </article>
       <article class="cell moyen reveal">
         <span class="num">02</span>
         <h3 class="display">Façades &amp; bardages industriels</h3>
         <p>Bardages métalliques, panneaux sandwich, façades d'entrepôts. Sans nacelle, sans arrêt d'activité.</p>
+        <a class="lien-svc" href="nettoyage-bardage-facade-caen/">Voir le service à Caen →</a>
         <div class="cible">Industrie · Logistique · Agricole</div>
       </article>
       <article class="cell petit reveal">
         <span class="num">03</span>
         <h3 class="display">Panneaux photovoltaïques</h3>
         <p>Nettoyage par robot et perche rotative, à l'eau pure déminéralisée. Rendement restauré, zéro chimie. Vente de kits robots. <b style="color:var(--txt-fort)">Intervention partout en France.</b></p>
+        <a class="lien-svc" href="nettoyage-panneaux-solaires-caen/">Voir le service à Caen →</a>
         <div class="cible">Parcs solaires · Centrales · Ombrières</div>
       </article>
       <article class="cell petit reveal">
         <span class="num">04</span>
         <h3 class="display">Vitrages grandes structures</h3>
         <p>Verrières, immeubles, façades vitrées de grande hauteur, nettoyés par drone. Réservé aux grandes structures.</p>
+        <a class="lien-svc" href="nettoyage-vitres-drone-caen/">Voir le service à Caen →</a>
         <div class="cible">Grandes structures uniquement</div>
       </article>
     </div>

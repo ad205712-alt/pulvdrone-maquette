@@ -809,21 +809,15 @@
     .fab-toggle{width:56px;height:56px}
   }
 
+  .maillage{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:900px;margin:0 auto}
+  .maillage a{border:1px solid rgba(159,212,255,.35);border-radius:999px;padding:12px 22px;color:var(--txt-fort);text-decoration:none;font-weight:700;font-size:.92rem;background:rgba(30,127,224,.08);transition:.2s}
+  .maillage a:hover{background:rgba(30,127,224,.22);border-color:var(--bleu-glow);box-shadow:0 0 18px rgba(127,190,245,.25)}
 </style>
 
 <div class="progress" aria-hidden="true"></div>
 <header class="site">
   <div class="nav">
     <ul>
-      <li class="deroulant">
-        <a href="../#services">Services <span class="fleche" aria-hidden="true">▾</span></a>
-        <ul class="sousmenu">
-          <li><a href="../#services">Démoussage &amp; toiture <em>à venir</em></a></li>
-          <li><a href="../#services">Façades &amp; bardages <em>à venir</em></a></li>
-          <li><a href="../#services">Panneaux photovoltaïques <em>à venir</em></a></li>
-          <li><a href="../#services">Vitrages grandes structures <em>à venir</em></a></li>
-        </ul>
-      </li>
       <li class="deroulant">
         <a href="../#zone">Caen <span class="fleche" aria-hidden="true">▾</span></a>
         <ul class="sousmenu">
@@ -833,6 +827,9 @@
           <li><a href="../nettoyage-vitres-drone-caen/">Vitrages Caen</a></li>
         </ul>
       </li>
+      <li><a href="../zone-intervention-calvados/">Zone d'intervention</a></li>
+      <li><a href="../robot-nettoyage-panneaux-solaires/">Robot solaire</a></li>
+      <li><a href="../blog/">Blog</a></li>
       <li><a href="../#chantiers">Chantiers</a></li>
       <li><a href="../#avis">Avis</a></li>
     </ul>
@@ -845,13 +842,6 @@
 <nav class="panneau-mobile" id="menumob" aria-label="Menu mobile">
   <button class="fermer" aria-label="Fermer le menu">✕</button>
   <div class="pm-groupe">
-    <span class="pm-titre">Services</span>
-    <a href="../#services">Démoussage &amp; toiture <em>à venir</em></a>
-    <a href="../#services">Façades &amp; bardages <em>à venir</em></a>
-    <a href="../#services">Panneaux photovoltaïques <em>à venir</em></a>
-    <a href="../#services">Vitrages grandes structures <em>à venir</em></a>
-  </div>
-  <div class="pm-groupe">
     <span class="pm-titre">Caen</span>
     <a href="../demoussage-toiture-drone-caen/">Démoussage toiture Caen</a>
     <a href="./" aria-current="page">Façades &amp; bardages Caen</a>
@@ -860,6 +850,9 @@
   </div>
   <div class="pm-groupe">
     <span class="pm-titre">Découvrir</span>
+    <a href="../zone-intervention-calvados/">Zone d'intervention</a>
+    <a href="../robot-nettoyage-panneaux-solaires/">Robot solaire — vente</a>
+    <a href="../blog/">Blog &amp; conseils</a>
     <a href="../#chantiers">Nos chantiers</a>
     <a href="../#avis">Avis clients</a>
   </div>
@@ -1037,6 +1030,21 @@
       <div class="stat"><b>50<em>+</em></b><span>chantiers réalisés</span></div>
       <div class="stat"><b>5,0<em>★</em></b><span>49 avis Google</span></div>
       <div class="stat"><b>−45<em>%</em></b><span>vs méthodes classiques</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="below compact">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center">
+      <span class="eyebrow">Pour aller plus loin</span>
+      <h2 class="titre display">Vérifiez nos zones<br>d'intervention.</h2>
+    </div>
+    <div class="maillage reveal">
+      <a href="../zone-intervention-calvados/">Vérifier nos zones d'intervention →</a>
+      <a href="../demoussage-toiture-drone-caen/">Démoussage toiture Caen</a>
+      <a href="../nettoyage-panneaux-solaires-caen/">Panneaux solaires Caen</a>
+      <a href="../nettoyage-vitres-drone-caen/">Vitrages Caen</a>
     </div>
   </div>
 </section>
