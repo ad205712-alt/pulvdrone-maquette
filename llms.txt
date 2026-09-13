@@ -17,3 +17,6 @@
 ## Pages
 - [Accueil](https://ad205712-alt.github.io/pulvdrone-maquette/)
 - [Démoussage toiture par drone à Caen](https://ad205712-alt.github.io/pulvdrone-maquette/demoussage-toiture-drone-caen/)
+- [Nettoyage façade & bardage par drone à Caen](https://ad205712-alt.github.io/pulvdrone-maquette/nettoyage-bardage-facade-caen/)
+- [Nettoyage de panneaux solaires à Caen](https://ad205712-alt.github.io/pulvdrone-maquette/nettoyage-panneaux-solaires-caen/)
+- [Nettoyage de vitres en hauteur par drone à Caen](https://ad205712-alt.github.io/pulvdrone-maquette/nettoyage-vitres-drone-caen/)
