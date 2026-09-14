@@ -932,6 +932,27 @@
     .grille-av .av:nth-child(3)::after{animation-delay:2.8s}
     .grille-av .av:nth-child(4)::after{animation-delay:4.2s}
   }
+  /* --- Numéros d'étapes : néon rouge qui grésille (diner américain) --- */
+  .etape::before{
+    -webkit-text-stroke:1.5px rgba(255,84,98,.95);
+    text-shadow:
+      0 0 8px rgba(255,69,83,.7),
+      0 0 22px rgba(225,29,48,.55),
+      0 0 48px rgba(225,29,48,.35);
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .etape:nth-child(1)::before{animation:neon-num 4.7s linear infinite}
+    .etape:nth-child(2)::before{animation:neon-num 5.3s linear 1.3s infinite}
+    .etape:nth-child(3)::before{animation:neon-num 3.9s linear 2.1s infinite}
+    @keyframes neon-num{
+      0%, 6.8%, 8.4%, 9.6%, 41%, 43.5%, 71%, 73%, 100%{opacity:1}
+      7%{opacity:.3}
+      8.8%{opacity:.7}
+      9.2%{opacity:.4}
+      42%{opacity:.45}
+      72%{opacity:.85}
+    }
+  }
 </style>
 
 <div class="hero hero-page">
