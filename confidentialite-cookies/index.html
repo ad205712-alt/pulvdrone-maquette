@@ -601,8 +601,9 @@
      remonter la page ne la fait pas rejouer. */
   .anim-in{
     opacity:0;transform:translateY(38px);
-    transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .25s;
+    transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);
   }
+  .anim-in:not(.vu){will-change:opacity,transform}
   .anim-in.vu{opacity:1;transform:none}
   .stats .stat:nth-child(2){transition-delay:.1s}
   .stats .stat:nth-child(3){transition-delay:.2s}
