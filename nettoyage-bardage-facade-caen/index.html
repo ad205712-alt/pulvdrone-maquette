@@ -951,23 +951,22 @@
   }
   /* --- Numéros d'étapes : néon rouge qui grésille (diner américain) --- */
   .etape::before{
-    -webkit-text-stroke:1.5px rgba(255,84,98,.95);
+    -webkit-text-stroke:1.5px rgba(255,96,108,.9);
     text-shadow:
-      0 0 8px rgba(255,69,83,.7),
-      0 0 22px rgba(225,29,48,.55),
-      0 0 48px rgba(225,29,48,.35);
+      0 0 5px rgba(255,69,83,.4),
+      0 0 14px rgba(225,29,48,.25);
   }
   @media (prefers-reduced-motion: no-preference){
-    .etape:nth-child(1)::before{animation:neon-num 4.7s linear infinite}
-    .etape:nth-child(2)::before{animation:neon-num 5.3s linear 1.3s infinite}
-    .etape:nth-child(3)::before{animation:neon-num 3.9s linear 2.1s infinite}
+    .etape:nth-child(1)::before{animation:neon-num 6.2s linear infinite}
+    .etape:nth-child(2)::before{animation:neon-num 7.1s linear 1.7s infinite}
+    .etape:nth-child(3)::before{animation:neon-num 5.4s linear 3.1s infinite}
     @keyframes neon-num{
-      0%, 6.8%, 8.4%, 9.6%, 41%, 43.5%, 71%, 73%, 100%{opacity:1}
-      7%{opacity:.3}
-      8.8%{opacity:.7}
-      9.2%{opacity:.4}
-      42%{opacity:.45}
-      72%{opacity:.85}
+      0%, 8.4%, 9.6%, 44%, 46%, 100%{opacity:1}
+      8.8%{opacity:.8}
+      9.2%{opacity:.9}
+      45%{opacity:.72}
+      45.5%{opacity:.88}
+      71%{opacity:.93}
     }
   }
 </style>
