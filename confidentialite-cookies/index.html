@@ -814,6 +814,20 @@
     .fab-toggle{width:56px;height:56px}
   }
 
+  /* --- entrée menu Robot solaire : mise en avant vente --- */
+  .nav .menu-robot{
+    display:inline-flex;align-items:center;gap:8px;
+    background:linear-gradient(160deg,#FF4553,var(--rouge-2));
+    color:#fff !important;padding:8px 16px;border-radius:999px;
+    box-shadow:0 4px 16px rgba(225,29,48,.45),0 0 14px rgba(225,29,48,.3);
+    transition:transform .2s,box-shadow .2s;
+  }
+  .nav .menu-robot:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(225,29,48,.55),0 0 20px rgba(225,29,48,.4)}
+  .nav .menu-robot em{
+    font-style:normal;font-size:.6rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+    background:rgba(255,255,255,.28);border-radius:999px;padding:2px 8px;
+  }
+  .pm-groupe a em.vente{color:#FF8A94;background:rgba(225,29,48,.25)}
 </style>
 
 <div class="progress" aria-hidden="true"></div>
@@ -830,7 +844,7 @@
         </ul>
       </li>
       <li><a href="../zone-intervention-calvados/">Zone d'intervention</a></li>
-      <li><a href="../robot-nettoyage-panneaux-solaires/">Robot solaire</a></li>
+      <li><a class="menu-robot" href="../robot-nettoyage-panneaux-solaires/">Robot solaire <em>Vente</em></a></li>
       <li><a href="../blog/">Blog</a></li>
       <li><a href="../#chantiers">Chantiers</a></li>
       <li><a href="../#avis">Avis</a></li>
@@ -853,7 +867,7 @@
   <div class="pm-groupe">
     <span class="pm-titre">Découvrir</span>
     <a href="../zone-intervention-calvados/">Zone d'intervention</a>
-    <a href="../robot-nettoyage-panneaux-solaires/">Robot solaire — vente</a>
+    <a href="../robot-nettoyage-panneaux-solaires/">Robot solaire <em class="vente">Vente</em></a>
     <a href="../blog/">Blog &amp; conseils</a>
     <a href="../#chantiers">Nos chantiers</a>
     <a href="../#avis">Avis clients</a>
