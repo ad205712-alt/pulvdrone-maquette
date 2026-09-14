@@ -898,9 +898,17 @@
     box-shadow:0 10px 32px rgba(13,46,110,.6),0 0 26px rgba(41,98,255,.4);
     color:#fff;font-weight:800;font-size:1.02rem;letter-spacing:.05em;text-transform:uppercase;
   }
+  .badge-tf1 img{flex:none}
   .badge-tf1 .date-tf1{
+    flex:none;white-space:nowrap;
     font-size:.8rem;font-weight:700;letter-spacing:.08em;color:rgba(210,228,255,.85);
     border-left:1px solid rgba(120,180,255,.4);padding-left:14px;
+  }
+  @media (max-width:720px){
+    .badge-tf1{display:flex;width:fit-content;margin:0 auto 16px;gap:10px;padding:10px 16px}
+    .badge-tf1 img[alt="TF1"]{width:36px;height:36px}
+    .badge-tf1 img[alt="Le 13H"]{width:62px;height:31px}
+    .badge-tf1 .date-tf1{font-size:.72rem;padding-left:10px}
   }
   .carrousel{overflow:hidden;margin-top:44px}
   .car-rail{display:flex;width:max-content}
