@@ -917,6 +917,38 @@
   .tbl td strong{color:var(--txt-fort)}
   .duo{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;max-width:1000px;margin:0 auto}
   @media (max-width:820px){.duo{grid-template-columns:1fr}}
+  /* --- Quatre bonnes raisons : couleur + vie --- */
+  .grille-av .av{
+    position:relative;overflow:hidden;
+    border:1px solid rgba(255,255,255,.22);border-left:none;border-radius:var(--r);
+    background:linear-gradient(160deg,rgba(30,127,224,.14),rgba(255,255,255,.03) 60%);
+    box-shadow:0 14px 30px rgba(2,10,24,.45),inset 0 1px 0 rgba(255,255,255,.14);
+    transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s;
+  }
+  .grille-av .av:nth-child(1){--acc:#FF4553}
+  .grille-av .av:nth-child(2){--acc:#1E7FE0}
+  .grille-av .av:nth-child(3){--acc:#4EA3F0}
+  .grille-av .av:nth-child(4){--acc:#9FD4FF}
+  .grille-av .av::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+    background:var(--acc);box-shadow:0 0 16px var(--acc);
+  }
+  .grille-av .av b{color:var(--acc);font-size:1.06rem}
+  .grille-av .av:hover{
+    transform:translateY(-5px);
+    box-shadow:0 22px 44px rgba(2,10,24,.55),0 0 24px color-mix(in srgb, var(--acc) 35%, transparent),inset 0 1px 0 rgba(255,255,255,.2);
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .grille-av .av::after{
+      content:"";position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.1) 50%,transparent 58%);
+      background-size:260% 100%;background-position:135% 0;background-repeat:no-repeat;
+      animation:balaye 7s ease-in-out infinite;
+    }
+    .grille-av .av:nth-child(2)::after{animation-delay:1.4s}
+    .grille-av .av:nth-child(3)::after{animation-delay:2.8s}
+    .grille-av .av:nth-child(4)::after{animation-delay:4.2s}
+  }
 </style>
 
 <div class="hero hero-page">
