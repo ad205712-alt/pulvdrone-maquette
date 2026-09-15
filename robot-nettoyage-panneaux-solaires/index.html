@@ -925,6 +925,115 @@
     text-align:center;font-size:.9rem;font-weight:700;color:var(--txt-fort);
   }
   .hero-photo figcaption small{display:block;margin-top:2px;font-weight:500;color:var(--bleu-clair);font-size:.78rem}
+  /* ============ Robot CSS en balade (fidèle au kit) ============ */
+  .robot-piste{position:relative;height:130px;margin-top:26px;overflow:hidden}
+  .rp-sol{
+    position:absolute;left:0;right:0;bottom:18px;height:56px;
+    background:
+      repeating-linear-gradient(90deg,rgba(127,190,245,.12) 0 1px,transparent 1px 64px),
+      repeating-linear-gradient(0deg,rgba(127,190,245,.1) 0 1px,transparent 1px 28px),
+      linear-gradient(180deg,rgba(14,58,122,.35),rgba(10,44,94,.15));
+    border-top:1px solid rgba(127,190,245,.3);
+    -webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+    mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  }
+  .rp-bot{
+    position:absolute;bottom:40px;left:100%;width:210px;height:64px;
+    will-change:transform;
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .rp-bot{animation:rp-traverse 15s linear infinite}
+    @keyframes rp-traverse{to{transform:translateX(calc(-100vw - 300px))}}
+  }
+  @media (prefers-reduced-motion: reduce){.robot-piste{display:none}}
+  /* traînée propre derrière le robot */
+  .rp-trail{
+    position:absolute;left:200px;bottom:-16px;width:340px;height:38px;
+    background:linear-gradient(90deg,rgba(159,212,255,.28),rgba(159,212,255,.06) 60%,transparent);
+    border-radius:6px;filter:blur(2px);
+  }
+  /* tuyau traînant */
+  .rp-tuyau{
+    position:absolute;left:195px;top:26px;width:260px;height:5px;border-radius:3px;
+    background:linear-gradient(90deg,#2979FF,rgba(41,121,255,.15));
+    transform:rotate(1.6deg);
+  }
+  /* corps blanc caissonné */
+  .rp-corps{
+    position:absolute;left:48px;top:4px;width:112px;height:40px;border-radius:7px;
+    background:linear-gradient(180deg,#FBFDFF,#DCE4EC 55%,#C2CCD6);
+    box-shadow:inset 0 2px 2px rgba(255,255,255,.9),inset 0 -4px 6px rgba(60,80,100,.35),0 6px 14px rgba(2,10,24,.5);
+  }
+  .rp-ligne{position:absolute;left:10px;right:10px;top:17px;height:2px;background:rgba(120,140,160,.4);border-radius:1px}
+  .rp-boitier{
+    position:absolute;right:14px;top:-7px;width:26px;height:12px;border-radius:3px;
+    background:linear-gradient(180deg,#3A4654,#161C24);
+  }
+  .rp-gyro{
+    position:absolute;left:16px;top:-6px;width:8px;height:8px;border-radius:50%;
+    background:#FF3B47;box-shadow:0 0 10px #FF3B47,0 0 22px rgba(255,59,71,.6);
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .rp-gyro{animation:rp-gyro 1s steps(2,jump-none) infinite}
+    @keyframes rp-gyro{50%{opacity:.25;box-shadow:none}}
+  }
+  /* ailes latérales blanches (déflecteurs) */
+  .rp-aile{
+    position:absolute;top:14px;width:46px;height:26px;
+    background:linear-gradient(180deg,#F2F6FA,#C9D3DD);
+    box-shadow:inset 0 1px 1px rgba(255,255,255,.8),0 4px 8px rgba(2,10,24,.4);
+  }
+  .rp-aile.g{left:6px;border-radius:8px 3px 3px 10px;transform:skewY(6deg)}
+  .rp-aile.d{right:6px;border-radius:3px 8px 10px 3px;transform:skewY(-6deg)}
+  /* chenilles : tapis roulant */
+  .rp-chenille{
+    position:absolute;left:58px;top:38px;width:92px;height:20px;border-radius:10px;
+    background:#14181E;overflow:hidden;
+    box-shadow:inset 0 2px 4px rgba(0,0,0,.8),0 3px 8px rgba(2,10,24,.6);
+  }
+  .rp-chenille i{
+    position:absolute;top:3px;bottom:3px;left:-24px;width:200%;
+    background:repeating-linear-gradient(90deg,#2A313B 0 6px,transparent 6px 12px);
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .rp-chenille i{animation:rp-tread .5s linear infinite}
+    @keyframes rp-tread{to{transform:translateX(12px)}}
+  }
+  /* rouleau-brosse bleu à l'avant (côté gauche = sens de marche) */
+  .rp-brosse{
+    position:absolute;left:10px;top:34px;width:40px;height:26px;border-radius:13px;
+    background:#0E2B5C;overflow:hidden;
+    box-shadow:0 4px 10px rgba(2,10,24,.6),inset 0 1px 2px rgba(255,255,255,.15);
+  }
+  .rp-brosse i{
+    position:absolute;inset:-4px -24px;
+    background:repeating-linear-gradient(75deg,#2979FF 0 5px,#0E2B5C 5px 10px);
+    filter:blur(.4px);
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .rp-brosse i{animation:rp-spin .28s linear infinite}
+    @keyframes rp-spin{to{transform:translateX(10px)}}
+  }
+  /* brume d'eau sous la brosse */
+  .rp-goutte{
+    position:absolute;left:18px;top:58px;width:4px;height:4px;border-radius:50%;
+    background:rgba(159,212,255,.8);opacity:0;
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .rp-goutte{animation:rp-eau 1.1s ease-in infinite}
+    .rp-goutte.g2{left:30px;animation-delay:.35s}
+    .rp-goutte.g3{left:8px;animation-delay:.7s}
+    @keyframes rp-eau{
+      0%{opacity:0;transform:translate(0,0) scale(1)}
+      15%{opacity:.9}
+      100%{opacity:0;transform:translate(14px,14px) scale(.4)}
+    }
+  }
+  @media (max-width:720px){
+    .robot-piste{height:104px}
+    .rp-bot{transform-origin:bottom left;bottom:34px}
+    .rp-bot{scale:.72}
+  }
   .maj{font-size:.82rem;color:rgba(159,212,255,.6);margin:-8px 0 26px}
   .maj strong{color:var(--bleu-clair)}
   .enbref{
@@ -1061,6 +1170,25 @@
       <span class="badge">Livraison gratuite en France</span>
       <span class="badge">Démo sur place à l'enlèvement</span>
       <span class="badge">5,0 / 5 — +50 avis Google</span>
+    </div>
+  </div>
+  <div class="robot-piste" aria-hidden="true">
+    <div class="rp-sol"></div>
+    <div class="rp-bot">
+      <div class="rp-trail"></div>
+      <div class="rp-tuyau"></div>
+      <div class="rp-aile g"></div>
+      <div class="rp-corps">
+        <span class="rp-ligne"></span>
+        <span class="rp-gyro"></span>
+        <span class="rp-boitier"></span>
+      </div>
+      <div class="rp-aile d"></div>
+      <div class="rp-chenille"><i></i></div>
+      <div class="rp-brosse"><i></i></div>
+      <span class="rp-goutte g1"></span>
+      <span class="rp-goutte g2"></span>
+      <span class="rp-goutte g3"></span>
     </div>
   </div>
 </div>
