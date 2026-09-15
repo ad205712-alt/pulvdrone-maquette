@@ -1419,7 +1419,8 @@
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(data)
       }).then(function(r){ if (!r.ok) throw 0; return r.json(); })
-      .then(function(){
+      .then(function(j){
+        if (j.success !== 'true' && j.success !== true) throw 0;
         var ok = f.querySelector('.ok'); if (ok) ok.style.display = 'block';
         if (btn) btn.textContent = 'Demande envoy\u00e9e \u2713';
       })
