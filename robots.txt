@@ -16,4 +16,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://ad205712-alt.github.io/pulvdrone-maquette/sitemap.xml
+Sitemap: https://pulvdrone14.fr/sitemap.xml

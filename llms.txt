@@ -15,13 +15,13 @@
 - Zone : Caen, Cabourg, Deauville, Trouville-sur-Mer, Houlgate, Villers-sur-Mer, Bayeux et tout le Calvados
 
 ## Pages
-- [Accueil](https://ad205712-alt.github.io/pulvdrone-maquette/)
-- [Démoussage toiture par drone à Caen](https://ad205712-alt.github.io/pulvdrone-maquette/demoussage-toiture-drone-caen/)
-- [Nettoyage façade & bardage par drone à Caen](https://ad205712-alt.github.io/pulvdrone-maquette/nettoyage-bardage-facade-caen/)
-- [Nettoyage de panneaux solaires à Caen](https://ad205712-alt.github.io/pulvdrone-maquette/nettoyage-panneaux-solaires-caen/)
-- [Nettoyage de vitres en hauteur par drone à Caen](https://ad205712-alt.github.io/pulvdrone-maquette/nettoyage-vitres-drone-caen/)
-- [Zone d'intervention — Calvados](https://ad205712-alt.github.io/pulvdrone-maquette/zone-intervention-calvados/)
-- [Vente de robot de nettoyage de panneaux solaires](https://ad205712-alt.github.io/pulvdrone-maquette/robot-nettoyage-panneaux-solaires/)
-- [Blog](https://ad205712-alt.github.io/pulvdrone-maquette/blog/)
-- [Quel robot de nettoyage de panneaux solaires choisir](https://ad205712-alt.github.io/pulvdrone-maquette/robot-nettoyage-comparatif/)
-- [À quelle fréquence nettoyer ses panneaux solaires](https://ad205712-alt.github.io/pulvdrone-maquette/frequence-nettoyage-panneaux-solaires/)
+- [Accueil](https://pulvdrone14.fr/)
+- [Démoussage toiture par drone à Caen](https://pulvdrone14.fr/demoussage-toiture-drone-caen/)
+- [Nettoyage façade & bardage par drone à Caen](https://pulvdrone14.fr/nettoyage-bardage-facade-caen/)
+- [Nettoyage de panneaux solaires à Caen](https://pulvdrone14.fr/nettoyage-panneaux-solaires-caen/)
+- [Nettoyage de vitres en hauteur par drone à Caen](https://pulvdrone14.fr/nettoyage-vitres-drone-caen/)
+- [Zone d'intervention — Calvados](https://pulvdrone14.fr/zone-intervention-calvados/)
+- [Vente de robot de nettoyage de panneaux solaires](https://pulvdrone14.fr/robot-nettoyage-panneaux-solaires/)
+- [Blog](https://pulvdrone14.fr/blog/)
+- [Quel robot de nettoyage de panneaux solaires choisir](https://pulvdrone14.fr/robot-nettoyage-comparatif/)
+- [À quelle fréquence nettoyer ses panneaux solaires](https://pulvdrone14.fr/frequence-nettoyage-panneaux-solaires/)
