@@ -1595,15 +1595,19 @@
     var prev = roiAnims[id];
     var from = (prev && prev.val != null) ? prev.val : val;
     if (prev && prev.raf) cancelAnimationFrame(prev.raf);
-    var t0 = performance.now(), dur = 450;
     roiAnims[id] = {val: val, raf: null};
-    function step(t){
-      var k = Math.min(1, (t - t0) / dur);
-      k = 1 - Math.pow(1 - k, 3);
-      el.textContent = fmt(from + (val - from) * k);
-      if (k < 1) roiAnims[id].raf = requestAnimationFrame(step);
+    if (from === val || document.hidden) {
+      el.textContent = fmt(val);
+    } else {
+      var t0 = performance.now(), dur = 450;
+      var step = function(t){
+        var k = Math.min(1, (t - t0) / dur);
+        k = 1 - Math.pow(1 - k, 3);
+        el.textContent = fmt(from + (val - from) * k);
+        if (k < 1) roiAnims[id].raf = requestAnimationFrame(step);
+      };
+      roiAnims[id].raf = requestAnimationFrame(step);
     }
-    roiAnims[id].raf = requestAnimationFrame(step);
     el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop');
   }
   function roiCalc(){
