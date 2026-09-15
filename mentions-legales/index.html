@@ -1156,4 +1156,59 @@
   })();
 </script>
 
+<style>
+  #bandeau-cookies{
+    position:fixed;left:0;right:0;bottom:0;z-index:99999;
+    background:rgba(6,23,47,.97);border-top:1px solid rgba(127,190,245,.25);
+    box-shadow:0 -12px 40px rgba(2,10,24,.5);
+    padding:18px clamp(16px,4vw,40px);
+    display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;
+    font-size:.88rem;color:#C9DDF2;text-align:center;
+  }
+  #bandeau-cookies p{margin:0;max-width:640px;line-height:1.55}
+  #bandeau-cookies a{color:#9FD4FF}
+  #bandeau-cookies .ck-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  #bandeau-cookies button{
+    font:inherit;font-weight:800;cursor:pointer;border-radius:999px;padding:10px 22px;
+    border:1px solid transparent;
+  }
+  #bandeau-cookies .ck-ok{background:#E11D30;color:#fff}
+  #bandeau-cookies .ck-ok:hover{background:#B01221}
+  #bandeau-cookies .ck-no{background:transparent;color:#C9DDF2;border-color:rgba(159,212,255,.4)}
+  #bandeau-cookies .ck-no:hover{border-color:#9FD4FF;color:#fff}
+  .ck-placeholder{
+    border:1px dashed rgba(127,190,245,.4);border-radius:14px;
+    padding:34px 20px;text-align:center;color:#9FD4FF;font-size:.92rem;line-height:1.6;
+    background:rgba(30,127,224,.06);
+  }
+  .ck-placeholder button{
+    font:inherit;font-weight:800;cursor:pointer;border-radius:999px;
+    padding:10px 22px;border:none;background:#E11D30;color:#fff;margin-top:12px;
+  }
+  .ck-placeholder button:hover{background:#B01221}
+</style>
+<script>
+  (function(){
+    var KEY = 'pd-consent-cookies';
+    function charger(){
+      document.querySelectorAll('iframe[data-consent-src]').forEach(function(f){
+        if (!f.src) f.src = f.getAttribute('data-consent-src');
+      });
+      document.querySelectorAll('.ck-placeholder').forEach(function(p){ p.style.display = 'none'; });
+    }
+    function accepter(){ try{ localStorage.setItem(KEY, 'oui'); }catch(e){} charger(); var b = document.getElementById('bandeau-cookies'); if (b) b.remove(); }
+    function refuser(){ try{ localStorage.setItem(KEY, 'non'); }catch(e){} var b = document.getElementById('bandeau-cookies'); if (b) b.remove(); }
+    document.querySelectorAll('.ck-placeholder button').forEach(function(btn){ btn.addEventListener('click', accepter); });
+    var choix = null;
+    try{ choix = localStorage.getItem(KEY); }catch(e){}
+    if (choix === 'oui'){ charger(); return; }
+    if (choix === 'non'){ return; }
+    var b = document.createElement('div');
+    b.id = 'bandeau-cookies';
+    b.innerHTML = '<p><b style="color:#F4F9FF">Cookies&nbsp;:</b> ce site n\u2019utilise des cookies que pour afficher les avis Google (service Google&nbsp;Maps). Le reste du site fonctionne sans aucun traceur. <a href="https://pulvdrone14.fr/confidentialite-cookies/">En savoir plus</a></p><span class="ck-btns"><button type="button" class="ck-ok">Accepter</button><button type="button" class="ck-no">Continuer sans accepter</button></span>';
+    document.body.appendChild(b);
+    b.querySelector('.ck-ok').addEventListener('click', accepter);
+    b.querySelector('.ck-no').addEventListener('click', refuser);
+  })();
+</script>
 </html>
