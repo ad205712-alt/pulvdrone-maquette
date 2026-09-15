@@ -1556,29 +1556,27 @@
       var btn = f.querySelector('button');
       if (btn){ btn.disabled = true; btn.dataset.t = btn.textContent; btn.textContent = 'Envoi en cours\u2026'; }
       var data = {};
-      new FormData(f).forEach(function(v, k){ if (k !== '_honey') data[k] = v; });
-      data._subject = 'Devis site Pulv&Drone \u2014 ' + document.title.split('|')[0].trim();
-      data._template = 'table';
-      fetch('https://formsubmit.co/ajax/pulvdrone14@gmail.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
-      }).then(function(r){ if (!r.ok) throw 0; return r.json(); })
-      .then(function(j){
-        if (j.success !== 'true' && j.success !== true) throw 0;
-        var ok = f.querySelector('.ok'); if (ok) ok.style.display = 'block';
-        if (btn) btn.textContent = 'Demande envoy\u00e9e \u2713';
-      })
-      .catch(function(){
+      new FormData(f).forEach(function(v, k){ data[k] = v; });
+      data.page = document.title.split('|')[0].trim();
+      function ok(){ var el = f.querySelector('.ok'); if (el) el.style.display = 'block'; if (btn) btn.textContent = 'Demande envoy\u00e9e \u2713'; }
+      function ko(){
         if (btn){ btn.disabled = false; btn.textContent = btn.dataset.t; }
         var err = f.querySelector('.err');
-        if (!err){
-          err = document.createElement('p'); err.className = 'err';
-          err.style.cssText = 'color:#FF8A94;font-weight:700;margin-top:10px';
-          f.appendChild(err);
-        }
+        if (!err){ err = document.createElement('p'); err.className = 'err'; err.style.cssText = 'color:#FF8A94;font-weight:700;margin-top:10px'; f.appendChild(err); }
         err.textContent = "L'envoi a \u00e9chou\u00e9 \u2014 appelez-nous directement au 06 68 86 89 68.";
-      });
+      }
+      fetch('/api/devis', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+        .then(function(r){ if (!r.ok) throw 0; return r.json(); })
+        .then(function(j){ if (!j.ok) throw 0; ok(); })
+        .catch(function(){
+          data._subject = 'Devis site Pulv&Drone \u2014 ' + data.page;
+          data._template = 'table';
+          delete data._honey;
+          fetch('https://formsubmit.co/ajax/pulvdrone14@gmail.com', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) })
+            .then(function(r){ return r.json(); })
+            .then(function(j){ if (j.success === 'true' || j.success === true) ok(); else ko(); })
+            .catch(ko);
+        });
     });
   });
 </script>
