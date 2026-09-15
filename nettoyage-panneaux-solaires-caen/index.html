@@ -1224,7 +1224,8 @@
       <h2 class="titre display">Votre devis caennais<br>décolle en 24 h.</h2>
     </div>
     <div class="contact-grid reveal">
-      <form class="devis" onsubmit="event.preventDefault(); this.querySelector('.ok').style.display='block';">
+      <form class="devis">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="l2">
           <label>Nom / Société<input type="text" name="nom" placeholder="Syndic Les Planches" required></label>
           <label>Téléphone<input type="tel" name="tel" placeholder="06 XX XX XX XX" required></label>
@@ -1313,6 +1314,7 @@
     <div class="mentions">
       <span>© 2026 SARL Pulv&amp;Drone — 18 Rue de Verdun, 14850 Hérouvillette · 06 68 86 89 68 · SIREN 880 838 339</span>
       <span><a href="../mentions-legales/" style="color:inherit">Mentions légales</a> · <a href="../confidentialite-cookies/" style="color:inherit">Confidentialité &amp; cookies</a></span>
+      <span>Fait avec <span style="color:var(--rouge)">❤</span> par <a href="https://www.webizz-digital.com" target="_blank" rel="noopener" style="color:inherit;font-weight:700">WebiZz Digital</a></span>
     </div>
   </div>
 </footer>
@@ -1496,5 +1498,39 @@
 
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://ad205712-alt.github.io/pulvdrone-maquette/"}, {"@type": "ListItem", "position": 2, "name": "Nettoyage panneaux solaires à Caen", "item": "https://ad205712-alt.github.io/pulvdrone-maquette/nettoyage-panneaux-solaires-caen/"}]}
+</script>
+<script>
+  document.querySelectorAll('form.devis').forEach(function(f){
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var hp = f.querySelector('[name=_honey]');
+      if (hp && hp.value) return;
+      var btn = f.querySelector('button');
+      if (btn){ btn.disabled = true; btn.dataset.t = btn.textContent; btn.textContent = 'Envoi en cours\u2026'; }
+      var data = {};
+      new FormData(f).forEach(function(v, k){ if (k !== '_honey') data[k] = v; });
+      data._subject = 'Devis site Pulv&Drone \u2014 ' + document.title.split('|')[0].trim();
+      data._template = 'table';
+      fetch('https://formsubmit.co/ajax/pulvdrone14@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function(r){ if (!r.ok) throw 0; return r.json(); })
+      .then(function(){
+        var ok = f.querySelector('.ok'); if (ok) ok.style.display = 'block';
+        if (btn) btn.textContent = 'Demande envoy\u00e9e \u2713';
+      })
+      .catch(function(){
+        if (btn){ btn.disabled = false; btn.textContent = btn.dataset.t; }
+        var err = f.querySelector('.err');
+        if (!err){
+          err = document.createElement('p'); err.className = 'err';
+          err.style.cssText = 'color:#FF8A94;font-weight:700;margin-top:10px';
+          f.appendChild(err);
+        }
+        err.textContent = "L'envoi a \u00e9chou\u00e9 \u2014 appelez-nous directement au 06 68 86 89 68.";
+      });
+    });
+  });
 </script>
 </html>
