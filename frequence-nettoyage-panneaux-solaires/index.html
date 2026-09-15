@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang="fr">
 <meta charset="utf-8">
-<link rel="canonical" href="https://ad205712-alt.github.io/pulvdrone-maquette/blog/">
+<link rel="canonical" href="https://ad205712-alt.github.io/pulvdrone-maquette/frequence-nettoyage-panneaux-solaires/">
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Pulv&Drone">
-<meta property="og:title" content="Blog Pulv&Drone — conseils démoussage, drone & photovoltaïque">
-<meta property="og:description" content="Prix d'un démoussage par drone, rentabilité d'un robot de nettoyage solaire : les conseils clairs de Pulv&Drone, expert normand du nettoyage par drone.">
-<meta property="og:url" content="https://ad205712-alt.github.io/pulvdrone-maquette/blog/">
-<meta property="og:image" content="https://ad205712-alt.github.io/pulvdrone-maquette/og-pulvdrone.jpg">
+<meta property="og:title" content="À quelle fréquence nettoyer ses panneaux solaires ? Les vrais repères | Pulv&Drone">
+<meta property="og:description" content="1 à 2 fois par an en général, plus en zone agricole ou en bord de mer : les repères concrets pour savoir quand nettoyer ses panneaux solaires, les 3 signes d'urgence, et qui doit s'en charger.">
+<meta property="og:url" content="https://ad205712-alt.github.io/pulvdrone-maquette/frequence-nettoyage-panneaux-solaires/">
+<meta property="og:image" content="https://ad205712-alt.github.io/pulvdrone-maquette/og-robot.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<title>Blog Pulv&Drone — conseils démoussage, drone & photovoltaïque</title>
-<meta name="description" content="Prix d'un démoussage par drone, rentabilité d'un robot de nettoyage solaire : les conseils clairs de Pulv&Drone, expert normand du nettoyage par drone.">
+<title>À quelle fréquence nettoyer ses panneaux solaires ? Les vrais repères | Pulv&Drone</title>
+<meta name="description" content="1 à 2 fois par an en général, plus en zone agricole ou en bord de mer : les repères concrets pour savoir quand nettoyer ses panneaux solaires, les 3 signes d'urgence, et qui doit s'en charger.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   /* ============ TOKENS ============ */
@@ -511,7 +511,9 @@
   .cell.petit{grid-column:span 6}
   @media (max-width:860px){.cell.grand,.cell.moyen,.cell.petit{grid-column:span 12}}
   .lien-svc{color:var(--bleu-clair);font-weight:700;text-decoration:none;font-size:.9rem;display:inline-block}
+  .lien-svc::after{content:"";position:absolute;inset:0;z-index:1}
   .lien-svc:hover{color:#fff}
+  .cell::before{pointer-events:none}
   .cell .pin{
     display:inline-flex;width:fit-content;align-items:center;gap:8px;
     font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
@@ -816,6 +818,26 @@
     .fab-toggle{width:56px;height:56px}
   }
 
+  /* --- Numéros d'étapes : néon rouge qui grésille (diner américain) --- */
+  .etape::before{
+    -webkit-text-stroke:1.5px rgba(255,96,108,.9);
+    text-shadow:
+      0 0 5px rgba(255,69,83,.4),
+      0 0 14px rgba(225,29,48,.25);
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .etape:nth-child(1)::before{animation:neon-num 6.2s linear infinite}
+    .etape:nth-child(2)::before{animation:neon-num 7.1s linear 1.7s infinite}
+    .etape:nth-child(3)::before{animation:neon-num 5.4s linear 3.1s infinite}
+    @keyframes neon-num{
+      0%, 8.4%, 9.6%, 44%, 46%, 100%{opacity:1}
+      8.8%{opacity:.8}
+      9.2%{opacity:.9}
+      45%{opacity:.72}
+      45.5%{opacity:.88}
+      71%{opacity:.93}
+    }
+  }
   /* --- entrée menu Robot solaire : mise en avant vente --- */
   .nav .menu-robot{
     display:inline-flex;align-items:center;gap:8px;
@@ -830,6 +852,15 @@
     background:rgba(255,255,255,.28);border-radius:999px;padding:2px 8px;
   }
   .pm-groupe a em.vente{color:#FF8A94;background:rgba(225,29,48,.25)}
+  /* --- bloc fiche Google + CTA avis --- */
+  .avis-google{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center;margin-top:48px}
+  @media (max-width:820px){.avis-google{grid-template-columns:1fr}}
+  .gmap{width:100%;height:340px;border:1px solid rgba(159,212,255,.35);border-radius:var(--r);box-shadow:0 16px 40px rgba(2,10,24,.5)}
+  .gcta{text-align:center;display:grid;justify-items:center;gap:10px}
+  .glogo{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:#fff;box-shadow:0 8px 24px rgba(2,10,24,.5),0 0 18px rgba(255,255,255,.25)}
+  .gcta h3{margin:0;font-family:"Avenir Next Condensed","Futura",Arial,sans-serif;font-weight:800;font-style:italic;text-transform:uppercase;font-size:1.7rem;color:var(--txt-fort)}
+  .gcta .gnote{margin:0;color:var(--txt)}
+  .gcta .etoiles{color:#FFD34D;font-size:1.3rem;letter-spacing:3px;text-shadow:0 0 16px rgba(255,211,77,.4)}
 </style>
 
 <div class="progress" aria-hidden="true"></div>
@@ -894,6 +925,36 @@
   .faq details[open] summary::after{content:"–"}
   .faq .rep{padding:0 20px 18px;font-size:.95rem}
   .hero-page .eyebrow{margin-bottom:22px}
+  /* --- Carte du Calvados : contour néon rouge animé --- */
+  .carte-cal{width:min(100%,760px);margin:34px auto 10px}
+  .carte-cal svg{width:100%;height:auto;display:block;overflow:visible}
+  .ct-fond{
+    fill:rgba(30,127,224,.07);
+    stroke:rgba(159,212,255,.3);stroke-width:2;
+  }
+  .ct-neon,.ct-glow1,.ct-glow2{
+    fill:none;stroke-linecap:round;stroke-linejoin:round;
+    stroke-dasharray:130 870;
+  }
+  .ct-neon{stroke:#FF4553;stroke-width:3.5}
+  .ct-glow1{stroke:rgba(255,69,83,.4);stroke-width:10}
+  .ct-glow2{stroke:rgba(225,29,48,.18);stroke-width:20}
+  @media (prefers-reduced-motion: no-preference){
+    .ct-neon,.ct-glow1,.ct-glow2{animation:tour-calvados 9s linear infinite}
+    @keyframes tour-calvados{to{stroke-dashoffset:-1000}}
+  }
+  .pt{fill:var(--bleu-clair);opacity:.9}
+  .lbl{
+    fill:#C6D8EE;font-family:"Avenir Next Condensed","Futura",Arial,sans-serif;
+    font-weight:700;font-style:italic;font-size:30px;letter-spacing:.04em;text-transform:uppercase;
+  }
+  .base{fill:#FF4553}
+  .base-halo{fill:none;stroke:rgba(255,69,83,.6);stroke-width:2}
+  @media (prefers-reduced-motion: no-preference){
+    .base-halo{transform-origin:center;transform-box:fill-box;animation:base-pulse 2.2s ease-out infinite}
+    @keyframes base-pulse{0%{transform:scale(.6);opacity:1}80%,100%{transform:scale(1.8);opacity:0}}
+  }
+  .lbl-base{fill:#FF8A94;font-size:26px}
   .maj{font-size:.82rem;color:rgba(159,212,255,.6);margin:-8px 0 26px}
   .maj strong{color:var(--bleu-clair)}
   .enbref{
@@ -918,7 +979,7 @@
   .maillage a{border:1px solid rgba(159,212,255,.35);border-radius:999px;padding:12px 22px;color:var(--txt-fort);text-decoration:none;font-weight:700;font-size:.92rem;background:rgba(30,127,224,.08);transition:.2s}
   .maillage a:hover{background:rgba(30,127,224,.22);border-color:var(--bleu-glow);box-shadow:0 0 18px rgba(127,190,245,.25)}
   .villes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
-  .vcard{border:1px solid var(--bord);border-radius:var(--r);padding:26px 24px;background:rgba(255,255,255,.03);text-align:left}
+  .vcard{border:1px solid var(--bord);border-radius:var(--r);padding:26px 24px;background:rgba(255,255,255,.03);text-align:center}
   .vcard h3{font-family:"Avenir Next Condensed","Futura",Arial,sans-serif;font-weight:800;font-style:italic;text-transform:uppercase;font-size:1.4rem;color:var(--txt-fort);margin:0 0 8px}
   .vcard p{margin:0 0 10px;font-size:.93rem}
   .vcard a{color:var(--bleu-clair);font-weight:700;text-decoration:none}
@@ -933,35 +994,62 @@
 
 <div class="hero hero-page">
   <div class="wrap">
-    <span class="eyebrow">Blog &amp; conseils</span>
-    <h1 class="display">Conseils de pro, <em class="rouge" style="font-style:inherit">vue du ciel.</em></h1>
-    <p class="lead">Prix, méthodes, rentabilité : les réponses claires de <b>Pulv&amp;Drone</b> aux questions qu'on nous pose vraiment — toiture, façades, photovoltaïque.</p>
+    <span class="eyebrow">Blog · Entretien photovoltaïque</span>
+    <h1 class="display">À quelle fréquence nettoyer <em class="rouge" style="font-style:inherit">ses panneaux solaires ?</em></h1>
+    <p class="lead">La pluie ne suffit pas : les <b>repères concrets</b> selon votre environnement, les 3 signes qu'il est urgent d'agir, et la bonne méthode.</p>
+    <p class="maj">Publié le 15 septembre 2026 · par <strong>Édouard Belleville</strong>, fondateur de Pulv&amp;Drone, télépilote certifié DGAC</p>
   </div>
 </div>
 
 <section class="below compact">
   <div class="wrap">
-    <div class="villes-grid" style="max-width:900px;margin:0 auto">
-      <div class="vcard reveal">
-        <h3>Prix d'un démoussage par drone : le vrai calcul</h3>
-        <p>Les 4 facteurs qui font le prix, l'écart réel avec l'échafaudage, et comment obtenir un chiffrage fiable en 24 h.</p>
-        <p><a href="../prix-demoussage-toiture-drone/">Lire l'article →</a></p>
+    <div class="prose reveal">
+      <p>« Faut-il vraiment nettoyer des panneaux solaires ? La pluie ne s'en charge pas ? » — c'est LA question qu'on entend. Réponse courte : <strong>oui il faut nettoyer, non la pluie ne suffit pas</strong>, et la bonne fréquence dépend surtout de votre environnement. Voici les repères concrets.</p>
+      <h3>La règle générale : 1 à 2 fois par an</h3>
+      <p>Pour la plupart des installations françaises, <strong>un nettoyage annuel</strong> maintient le rendement ; <strong>deux passages</strong> (après les pollens du printemps, puis à l'automne) optimisent les sites exposés. La pluie rince la poussière libre, mais laisse les films gras, les pollens collés, les fientes et le calcaire — précisément ce qui bloque la lumière.</p>
+      <h3>Les environnements qui imposent plus</h3>
+      <p><strong>Zone agricole</strong> : moissons, labours et ensilage déposent un voile qui peut coûter 15-20 % de production — nettoyez après chaque moisson. <strong>Bord de mer</strong> : les embruns laissent un film salin tenace — deux passages minimum sur la côte normande. <strong>Proximité d'arbres</strong> : pollens, sève et fientes exigent une surveillance au printemps. <strong>Zone industrielle ou grand axe routier</strong> : les particules grasses s'incrustent — un contrôle semestriel s'impose.</p>
+      <h3>Les 3 signes qu'il est déjà urgent d'agir</h3>
+      <p>1. Votre <strong>courbe de production</strong> décroche par rapport aux étés précédents à ensoleillement égal. 2. Des <strong>dépôts visibles</strong> : traînées vertes sur les cadres, croûtes blanches, voile terne. 3. Des <strong>points chauds</strong> signalés par votre onduleur — une fiente incrustée peut dégrader durablement une cellule.</p>
+      <div class="funnel">
+        <b>Un nettoyage pro, ou votre propre robot : on vous conseille honnêtement.</b>
+        <div class="ctas" style="margin:0;justify-content:center">
+          <a class="btn" href="../nettoyage-panneaux-solaires-caen/">Demander un nettoyage</a>
+          <a class="btn tel" href="tel:+33668868968"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>06 68 86 89 68</a>
+        </div>
       </div>
-      <div class="vcard reveal">
-        <h3>Quel robot de nettoyage de panneaux solaires choisir en 2026 ?</h3>
-        <p>Radars anti-chute, rendement, contenu du kit : la méthode en 3 étapes pour trancher, par des pros qui utilisent le matériel.</p>
-        <p><a href="../robot-nettoyage-comparatif/">Lire l'article →</a></p>
+      <h3>Qui doit s'en charger ?</h3>
+      <p>Jamais de karcher ni de produit ménager : micro-rayures, chocs thermiques et garantie fabricant compromise. Le nettoyage se fait à l'<strong>eau pure déminéralisée</strong> avec brosses douces. Pour une maison ou un besoin ponctuel, une <strong>prestation professionnelle</strong> est la solution simple. Pour un exploitant avec des milliers de m² récurrents, <strong>posséder son robot</strong> devient vite plus rentable — on vous aide à faire le calcul.</p>
+      <div class="funnel">
+        <b>Le kit complet, prêt à travailler : 8 990 € TTC, livraison gratuite.</b>
+        <div class="ctas" style="margin:0;justify-content:center">
+          <a class="btn" href="../robot-nettoyage-panneaux-solaires/">Découvrir le kit robot</a>
+          <a class="btn tel" href="tel:+33668868968"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>06 68 86 89 68</a>
+        </div>
       </div>
-      <div class="vcard reveal">
-        <h3>À quelle fréquence nettoyer ses panneaux solaires ?</h3>
-        <p>1 à 2 fois par an en général — plus en zone agricole ou bord de mer. Les repères concrets et les 3 signes d'urgence.</p>
-        <p><a href="../frequence-nettoyage-panneaux-solaires/">Lire l'article →</a></p>
-      </div>
-      <div class="vcard reveal">
-        <h3>Robot de nettoyage solaire : rentable à partir de quand ?</h3>
-        <p>10 à 20 % de production perdue par l'encrassement : le calcul complet, et le point de bascule entre prestation et achat du kit.</p>
-        <p><a href="../robot-nettoyage-rentabilite/">Lire l'article →</a></p>
-      </div>
+    </div>
+  </div>
+</section>
+
+<section class="below">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Questions fréquentes</span>
+      <h2 class="titre display">On vous répond.</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>La pluie ne nettoie-t-elle pas les panneaux solaires ?</summary>
+        <div class="rep">Non : elle rince la poussière libre mais laisse films gras, pollens collés, fientes et calcaire — ce qui bloque la lumière. Seul un nettoyage à l'eau pure restaure le rendement.</div>
+      </details>
+      <details>
+        <summary>Quel est le meilleur moment de l'année pour nettoyer ?</summary>
+        <div class="rep">Après les pollens du printemps (mai-juin) et, pour les sites exposés, un second passage à l'automne. En zone agricole, ajoutez un passage après les moissons.</div>
+      </details>
+      <details>
+        <summary>Puis-je nettoyer mes panneaux moi-même au karcher ?</summary>
+        <div class="rep">Surtout pas : haute pression et chocs thermiques créent des micro-fissures et peuvent annuler la garantie fabricant. Eau pure déminéralisée et brosses douces uniquement.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -973,9 +1061,10 @@
       <h2 class="titre display">Vérifiez nos zones<br>d'intervention.</h2>
     </div>
     <div class="maillage reveal">
-      <a href="../zone-intervention-calvados/">Vérifier nos zones d'intervention →</a>
-      <a href="../demoussage-toiture-drone-caen/">Démoussage toiture</a>
-      <a href="../robot-nettoyage-panneaux-solaires/">Le kit robot</a>
+      <a href="../nettoyage-panneaux-solaires-caen/">Demander un nettoyage</a>
+      <a href="../robot-nettoyage-panneaux-solaires/">Le kit robot en détail</a>
+      <a href="../robot-nettoyage-rentabilite/">Robot : rentable à partir de quand ?</a>
+      <a href="../blog/">Tous nos articles</a>
     </div>
   </div>
 </section>
@@ -1021,9 +1110,8 @@
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"Blog","name":"Le blog Pulv&Drone","url":"https://ad205712-alt.github.io/pulvdrone-maquette/blog/","inLanguage":"fr-FR","publisher":{"@type":"Organization","name":"Pulv&Drone","url":"https://ad205712-alt.github.io/pulvdrone-maquette/"},"blogPost":[
-{"@type":"BlogPosting","headline":"Prix d'un démoussage de toiture par drone : le vrai calcul","url":"https://ad205712-alt.github.io/pulvdrone-maquette/prix-demoussage-toiture-drone/","datePublished":"2026-09-14"},
-{"@type":"BlogPosting","headline":"Robot de nettoyage de panneaux solaires : rentable à partir de quand ?","url":"https://ad205712-alt.github.io/pulvdrone-maquette/robot-nettoyage-rentabilite/","datePublished":"2026-09-14"}]}]}
+{"@type":"Article","headline":"À quelle fréquence nettoyer ses panneaux solaires ?","description":"1 à 2 fois par an en général, plus en zone agricole ou en bord de mer : les repères concrets pour savoir quand nettoyer ses panneaux solaires, les 3 signes d'urgence, et qui doit s'en charger.","datePublished":"2026-09-15","dateModified":"2026-09-15","inLanguage":"fr-FR","image":"https://ad205712-alt.github.io/pulvdrone-maquette/og-robot.jpg","mainEntityOfPage":"https://ad205712-alt.github.io/pulvdrone-maquette/frequence-nettoyage-panneaux-solaires/","author":{"@type":"Person","name":"Édouard Belleville"},"publisher":{"@type":"Organization","name":"Pulv&Drone","url":"https://ad205712-alt.github.io/pulvdrone-maquette/"}},
+{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"La pluie ne nettoie-t-elle pas les panneaux solaires ?","acceptedAnswer":{"@type":"Answer","text":"Non : elle rince la poussière libre mais laisse films gras, pollens collés, fientes et calcaire — ce qui bloque la lumière. Seul un nettoyage à l'eau pure restaure le rendement."}},{"@type":"Question","name":"Quel est le meilleur moment de l'année pour nettoyer ?","acceptedAnswer":{"@type":"Answer","text":"Après les pollens du printemps (mai-juin) et, pour les sites exposés, un second passage à l'automne. En zone agricole, ajoutez un passage après les moissons."}},{"@type":"Question","name":"Puis-je nettoyer mes panneaux moi-même au karcher ?","acceptedAnswer":{"@type":"Answer","text":"Surtout pas : haute pression et chocs thermiques créent des micro-fissures et peuvent annuler la garantie fabricant. Eau pure déminéralisée et brosses douces uniquement."}}]}]}
 </script>
 
 <footer class="site">

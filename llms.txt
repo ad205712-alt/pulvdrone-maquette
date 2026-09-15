@@ -23,3 +23,5 @@
 - [Zone d'intervention — Calvados](https://ad205712-alt.github.io/pulvdrone-maquette/zone-intervention-calvados/)
 - [Vente de robot de nettoyage de panneaux solaires](https://ad205712-alt.github.io/pulvdrone-maquette/robot-nettoyage-panneaux-solaires/)
 - [Blog](https://ad205712-alt.github.io/pulvdrone-maquette/blog/)
+- [Quel robot de nettoyage de panneaux solaires choisir](https://ad205712-alt.github.io/pulvdrone-maquette/robot-nettoyage-comparatif/)
+- [À quelle fréquence nettoyer ses panneaux solaires](https://ad205712-alt.github.io/pulvdrone-maquette/frequence-nettoyage-panneaux-solaires/)
