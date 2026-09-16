@@ -1,27 +1,125 @@
 {
   "trailingSlash": true,
   "redirects": [
-    { "source": "/nettoyage-toiture-:ville/", "destination": "/demoussage-toiture-drone-caen/", "permanent": true },
-    { "source": "/nettoyage-toiture-:ville", "destination": "/demoussage-toiture-drone-caen/", "permanent": true },
-    { "source": "/nettoyage-facade-:ville/", "destination": "/nettoyage-bardage-facade-caen/", "permanent": true },
-    { "source": "/nettoyage-facade-:ville", "destination": "/nettoyage-bardage-facade-caen/", "permanent": true },
-    { "source": "/panneaux-photovoltaiques/", "destination": "/nettoyage-panneaux-solaires-caen/", "permanent": true },
-    { "source": "/panneaux-photovoltaiques", "destination": "/nettoyage-panneaux-solaires-caen/", "permanent": true },
-    { "source": "/nos-actualites/", "destination": "/blog/", "permanent": true },
-    { "source": "/nos-actualites", "destination": "/blog/", "permanent": true },
-    { "source": "/hello-world/", "destination": "/blog/", "permanent": true },
-    { "source": "/hello-world", "destination": "/blog/", "permanent": true },
-    { "source": "/politique-de-confidentialite/", "destination": "/confidentialite-cookies/", "permanent": true },
-    { "source": "/politique-de-confidentialite", "destination": "/confidentialite-cookies/", "permanent": true },
-    { "source": "/contact-devis/", "destination": "/#contact", "permanent": true },
-    { "source": "/contact-devis", "destination": "/#contact", "permanent": true },
-    { "source": "/nos-services/", "destination": "/", "permanent": true },
-    { "source": "/nos-services", "destination": "/", "permanent": true },
-    { "source": "/nos-chantiers/", "destination": "/", "permanent": true },
-    { "source": "/nos-chantiers", "destination": "/", "permanent": true },
-    { "source": "/galerie-photo/", "destination": "/", "permanent": true },
-    { "source": "/galerie-photo", "destination": "/", "permanent": true },
-    { "source": "/faq/", "destination": "/", "permanent": true },
-    { "source": "/faq", "destination": "/", "permanent": true }
+    {
+      "source": "/Panneaux-photovoltaïques/",
+      "destination": "/nettoyage-panneaux-solaires-caen/",
+      "permanent": true
+    },
+    {
+      "source": "/Panneaux-photovoltaïques",
+      "destination": "/nettoyage-panneaux-solaires-caen/",
+      "permanent": true
+    },
+    {
+      "source": "/nettoyage-toiture-:ville/",
+      "destination": "/demoussage-toiture-drone-caen/",
+      "permanent": true
+    },
+    {
+      "source": "/nettoyage-toiture-:ville",
+      "destination": "/demoussage-toiture-drone-caen/",
+      "permanent": true
+    },
+    {
+      "source": "/nettoyage-facade-:ville/",
+      "destination": "/nettoyage-bardage-facade-caen/",
+      "permanent": true
+    },
+    {
+      "source": "/nettoyage-facade-:ville",
+      "destination": "/nettoyage-bardage-facade-caen/",
+      "permanent": true
+    },
+    {
+      "source": "/panneaux-photovoltaiques/",
+      "destination": "/nettoyage-panneaux-solaires-caen/",
+      "permanent": true
+    },
+    {
+      "source": "/panneaux-photovoltaiques",
+      "destination": "/nettoyage-panneaux-solaires-caen/",
+      "permanent": true
+    },
+    {
+      "source": "/nos-actualites/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/nos-actualites",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/hello-world/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/hello-world",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/politique-de-confidentialite/",
+      "destination": "/confidentialite-cookies/",
+      "permanent": true
+    },
+    {
+      "source": "/politique-de-confidentialite",
+      "destination": "/confidentialite-cookies/",
+      "permanent": true
+    },
+    {
+      "source": "/contact-devis/",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/contact-devis",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/nos-services/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/nos-services",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/nos-chantiers/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/nos-chantiers",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/galerie-photo/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/galerie-photo",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/faq/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }
