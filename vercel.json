@@ -2,6 +2,16 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/Panneaux-photovolta%C3%AFques/",
+      "destination": "/nettoyage-panneaux-solaires-caen/",
+      "permanent": true
+    },
+    {
+      "source": "/Panneaux-photovolta%C3%AFques",
+      "destination": "/nettoyage-panneaux-solaires-caen/",
+      "permanent": true
+    },
+    {
       "source": "/Panneaux-photovoltaïques/",
       "destination": "/nettoyage-panneaux-solaires-caen/",
       "permanent": true
