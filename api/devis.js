@@ -1,12 +1,14 @@
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Méthode non autorisée' });
-  const { nom, tel, email, service, ville, message, page, _honey } = req.body || {};
+  const { nom, tel, email, service, adresse, cp, ville, message, page, _honey } = req.body || {};
   if (_honey) return res.status(200).json({ ok: true });
-  if (!nom || !tel || !email) return res.status(400).json({ error: 'Champs manquants' });
+  if (!nom || !tel || !email || !adresse || !cp || !ville) return res.status(400).json({ error: 'Champs manquants' });
   if (!process.env.RESEND_API_KEY) return res.status(503).json({ error: 'Service non configuré' });
 
   const esc = (s) => String(s || '').replace(/[<>&"]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]));
   const telHref = 'tel:' + String(tel).replace(/\s/g, '');
+  const adresseComplete = `${adresse}, ${cp} ${ville}`;
+  const mapsHref = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(adresseComplete);
 
   const champ = (label, valeur) => `
     <div style="padding:15px 28px;border-bottom:1px solid #EEF3F8;text-align:center">
@@ -40,7 +42,7 @@ export default async function handler(req, res) {
     ${champ('Téléphone', `<a href="${telHref}" style="color:#1E7FE0;font-weight:700;text-decoration:none">${esc(tel)}</a>`)}
     ${champ('Email', `<a href="mailto:${esc(email)}" style="color:#1E7FE0;font-weight:700;text-decoration:none">${esc(email)}</a>`)}
     ${service ? champ('Prestation', esc(service)) : ''}
-    ${ville ? champ('Commune du chantier', esc(ville)) : ''}
+    ${champ('Adresse du chantier', `<a href="${mapsHref}" style="color:#1E7FE0;font-weight:700;text-decoration:none">${esc(adresse)}<br>${esc(cp)} ${esc(ville)}</a>`)}
     ${message ? `
     <div style="padding:22px 28px 6px;text-align:center">
       <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8FA3B8;margin-bottom:10px">Message</div>
